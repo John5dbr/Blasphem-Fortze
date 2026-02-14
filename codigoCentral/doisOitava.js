@@ -1,4 +1,4 @@
-export class umaOitava extends HTMLElement {
+export class doisOitava extends HTMLElement {
     constructor() {
         super();
 
@@ -80,18 +80,18 @@ export class umaOitava extends HTMLElement {
 
     connectedCallback() {
         let notas = {
-            do: new Audio('../codigoCentral/Recursos/Audio/UmOitava/C1.mp3'),
-            reB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Db1.mp3'),
-            re: new Audio('../codigoCentral/Recursos/Audio/UmOitava/D1.mp3'),
-            miB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Eb1.mp3'),
-            mi: new Audio('../codigoCentral/Recursos/Audio/UmOitava/E1.mp3'),
-            fa: new Audio('../codigoCentral/Recursos/Audio/UmOitava/F1.mp3'),
-            solB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Gb1.mp3'),
-            sol: new Audio('../codigoCentral/Recursos/Audio/UmOitava/G1.mp3'),
-            laB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Ab1.mp3'),
-            la: new Audio('../codigoCentral/Recursos/Audio/UmOitava/A1.mp3'),
-            siB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Bb1.mp3'),
-            si: new Audio('../codigoCentral/Recursos/Audio/UmOitava/B1.mp3')
+            do: new Audio('../codigoCentral/Recursos/Audio/doisOitava/C2.mp3'),
+            reB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Db2.mp3'),
+            re: new Audio('../codigoCentral/Recursos/Audio/doisOitava/D2.mp3'),
+            miB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Eb2.mp3'),
+            mi: new Audio('../codigoCentral/Recursos/Audio/doisOitava/E2.mp3'),
+            fa: new Audio('../codigoCentral/Recursos/Audio/doisOitava/F2.mp3'),
+            solB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Gb2.mp3'),
+            sol: new Audio('../codigoCentral/Recursos/Audio/doisOitava/G2.mp3'),
+            laB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Ab2.mp3'),
+            la: new Audio('../codigoCentral/Recursos/Audio/doisOitava/A2.mp3'),
+            siB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Bb2.mp3'),
+            si: new Audio('../codigoCentral/Recursos/Audio/doisOitava/B2.mp3')
         };
 
         // Seleção das teclas presente nesssa oitava.
@@ -224,18 +224,18 @@ export class umaOitava extends HTMLElement {
 
         // Lista que botões do teclado aceitos para a teclas do piano.
         let botoes = [
-            'q',
-            '2',
-            'w',
-            '3',
-            'e',
-            'r',
-            '5',
-            't',
-            '6',
-            'y',
-            '7',
-            'u'
+            'z',
+            's',
+            'x',
+            'd',
+            'c',
+            'v',
+            'g',
+            'b',
+            'h',
+            'n',
+            'j',
+            'm'
         ];
 
         // Função responsável por identificar qual tecla foi clicada bom base no botão do teclado.
