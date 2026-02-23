@@ -13,6 +13,8 @@ export class umaOitava extends HTMLElement {
                     display: flex;
                     flex-flow: row nowrap;
 
+                    background: black;
+
                     position: relative;
                 }
 

@@ -6,28 +6,16 @@ customElements.define('uma-oitava', umaOitava);
 customElements.define('dois-oitava', doisOitava);
 customElements.define('piano-001', visualDoPiano001);
 
-/*
-let teclas = document.getElementById('teclas');
-teclas.addEventListener('mousedown', pressionarTecla);
-function pressionarTecla(event) {
-    let elementoClicado = event.target;
-    
-    if (elementoClicado.classList.contains('tecla')) {
-        elementoClicado.classList.toggle('teclaPressionada');
-    };
-};
-teclas.addEventListener('mouseup', soltarTecla);
-function soltarTecla(event) {
-    let elementoClicado = event.target;
-    
-    if (elementoClicado.classList.contains('tecla')) {
-        elementoClicado.classList.toggle('teclaPressionada');
-    };
-};
-teclas.addEventListener('mouseout', saiuDaTecla);
-function saiuDaTecla(event) {
-    let elementoClicado = event.target;
+let script = document.getElementById('rotaParaAsNotas');
 
-    elementoClicado.classList.remove('teclaPressionada');
+window.addEventListener('DOMContentLoaded', alterarMusica);
+script.addEventListener('click', alterarMusica);
+function alterarMusica() {
+    let url = document.getElementById('script').dataset.urlpararitmo;
+
+    let mensagem = new CustomEvent('enviandoURL', {
+        detail: url
+    });
+
+    dispatchEvent(mensagem);
 };
-*/

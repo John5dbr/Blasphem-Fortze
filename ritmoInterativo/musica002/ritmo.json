@@ -1,0 +1,98 @@
+[
+    {
+        "tecla": "001",
+        "nota": "A1",
+        "tempoParaAparecer": 1,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "002",
+        "nota": "Bb1",
+        "tempoParaAparecer": 1.5,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "003",
+        "nota": "F2",
+        "tempoParaAparecer": 3,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "004",
+        "nota": "Bb1",
+        "tempoParaAparecer": 3.5,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "005",
+        "nota": "F2",
+        "tempoParaAparecer": 5,
+        "pressaoDeClique": 4
+    }, 
+    {
+        "tecla": "006",
+        "nota": "F2",
+        "tempoParaAparecer": 6,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "007",
+        "nota": "Eb2",
+        "tempoParaAparecer": 7,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "008",
+        "nota": "Db2",
+        "tempoParaAparecer": 7.5,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "009",
+        "nota": "C2",
+        "tempoParaAparecer": 8,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "010",
+        "nota": "Eb2",
+        "tempoParaAparecer": 8.5,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "011",
+        "nota": "Db2",
+        "tempoParaAparecer": 9,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "012",
+        "nota": "C2",
+        "tempoParaAparecer": 9.5,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "013",
+        "nota": "Bb1",
+        "tempoParaAparecer": 10,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "014",
+        "nota": "F2",
+        "tempoParaAparecer": 11,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "015",
+        "nota": "Bb1",
+        "tempoParaAparecer": 12,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "016",
+        "nota": "F2",
+        "tempoParaAparecer": 13,
+        "pressaoDeClique": 3
+    }
+]

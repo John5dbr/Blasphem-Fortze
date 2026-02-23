@@ -9,9 +9,11 @@ export class doisOitava extends HTMLElement {
             <style>
                 /* ============ Estilização Das Teclas ============ */
 
-                #PrimeiraOitava {
+                #SegundaOitava {
                     display: flex;
                     flex-flow: row nowrap;
+
+                    background: black;
 
                     position: relative;
                 }
@@ -59,7 +61,7 @@ export class doisOitava extends HTMLElement {
                 }
             </style>
 
-            <span id="PrimeiraOitava">
+            <span id="SegundaOitava">
                 <span class="tecla teclaBranca" id="do"></span>
                 <span class="tecla teclaPreta" id="reB"></span>
                 <span class="tecla teclaBranca" id="re"></span>
@@ -95,7 +97,7 @@ export class doisOitava extends HTMLElement {
         };
 
         // Seleção das teclas presente nesssa oitava.
-        let teclas = this.shadowRoot.querySelector('#PrimeiraOitava');
+        let teclas = this.shadowRoot.querySelector('#SegundaOitava');
         teclas.addEventListener('mousedown', pressionarTecla);
 
         // Expressar som após uma tecla ser pressionada.

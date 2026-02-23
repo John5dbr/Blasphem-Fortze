@@ -1,65 +1,30 @@
 @charset "UTF-8";
 
-/*
-#piano {
-    display: inline-block;
-    padding: 100px 50px 10px 50px;
-
-    background: gray;
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-#teclas { 
+/* Configuração do arquivo CSS */
+
+#areaDeJogo {
     display: flex;
-    flex-flow: row nowrap;
+    justify-content: center; 
+    align-items: center;
+
+    width: 80%;
+    height: 100vh;
 }
-*/
 
-/*
-#PrimeiraOitava {
+#rotaParaAsNotas {
     display: flex;
-    flex-flow: row nowrap;
+    justify-content: center; 
+    align-items: flex-end;
 
+    overflow: hidden;
     position: relative;
-}
 
-.teclaPreta {
-    position: absolute;
-    z-index: 1  ;
 
-    height: 80px;
-    width: 30px;
-
-    transition: all 0.1s linear 0s;
-    background: black;  
-
-    border: 1px solid black;
+    width: 828px;
+    height: 90vh;
 }
-#doSust {
-    left: 35px;
-}
-#reSust {
-    left: 90px;
-}
-#faSust {
-    left: 190px;
-}
-#solSust {
-    left: 245px;
-}
-#laSust {
-    left: 295px;
-}
-.teclaBranca {
-    height: 175px;
-    width: 50px;
-
-    transition: all 0.1s linear 0s;
-    background: white;
-
-    border: 1px solid black;
-}
-
-.teclaPressionada {   
-    transform: perspective(600px) rotateX(-10deg);
-}
-*/
