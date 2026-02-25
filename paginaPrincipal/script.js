@@ -6,12 +6,12 @@ customElements.define('uma-oitava', umaOitava);
 customElements.define('dois-oitava', doisOitava);
 customElements.define('piano-001', visualDoPiano001);
 
-let script = document.getElementById('rotaParaAsNotas');
+let rotaParaAsNotas = document.getElementById('rotaParaAsNotas');
 
 window.addEventListener('DOMContentLoaded', alterarMusica);
-script.addEventListener('click', alterarMusica);
+rotaParaAsNotas.addEventListener('click', alterarMusica);
 function alterarMusica() {
-    let url = document.getElementById('script').dataset.urlpararitmo;
+    let url = document.getElementById('script-definir_ritmoParaTeclas').dataset.urlpararitmo;
 
     let mensagem = new CustomEvent('enviandoURL', {
         detail: url

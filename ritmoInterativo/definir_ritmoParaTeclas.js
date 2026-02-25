@@ -4,9 +4,9 @@ function inserindoTeclaNoDOM(tecla, nota, tempoParaAparecer, pressaoDeClique) {
     tempoParaAparecer *= 1000;
     let elemento = gerandoTecla(nota, pressaoDeClique);
     setTimeout(() => {
-        rotaParaAsNotas.prepend(elemento);
+        rotaParaAsNotas.prepend(elemento[0]);
     }, tempoParaAparecer)
-    animacaoComRitmo(elemento, tempoParaAparecer);
+    animacaoComRitmo(elemento[0], tempoParaAparecer, elemento[1], elemento[2], elemento[3]);
 };
 
 function gerandoTecla_DefinindoCor(nota) {
@@ -19,6 +19,7 @@ function gerandoTecla_DefinindoCor(nota) {
 };
 
 function gerandoTecla(nota, pressaoDeClique) {
+    let btn;
     let cor = gerandoTecla_DefinindoCor(nota);
 
     let elemento = document.createElement("div");
@@ -50,34 +51,44 @@ function gerandoTecla(nota, pressaoDeClique) {
 
         if (nota === "Db1") {
             elemento.innerText = `2`;
+            btn = `2`
             elemento.style.left = `85px`;
         } else if (nota === "Eb1") {
             elemento.innerText = `3`;
+            btn = `3`
             elemento.style.left = `140px`;
         } else if (nota === "Gb1") {
             elemento.innerText = `5`;
+            btn = `5`
             elemento.style.left = `240px`;
         } else if (nota === "Ab1") {
             elemento.innerText = `6`;
+            btn = `6`
             elemento.style.left = `295px`;
         } else if (nota === "Bb1") {
             elemento.innerText = `7`;
+            btn = `7`
             elemento.style.left = `345px`;
         } else if (nota === "Db2") {
             // Onde começa as notas da segunda oitava
-            elemento.innerText = `S`;
+            elemento.innerText = `s`;
+            btn = `s`
             elemento.style.left = `449px`;
         } else if (nota === "Eb2") {
-            elemento.innerText = `D`;
+            elemento.innerText = `d`;
+            btn = `d`
             elemento.style.left = `504px`;
         } else if (nota === "Gb2") {
-            elemento.innerText = `G`;
+            elemento.innerText = `g`;
+            btn = `g`
             elemento.style.left = `604px`;
         } else if (nota === "Ab2") {
-            elemento.innerText = `H`;
+            elemento.innerText = `h`;
+            btn = `h`
             elemento.style.left = `659px`;
         } else if (nota === "Bb2") {
-            elemento.innerText = `J`;
+            elemento.innerText = `j`;
+            btn = `j`
             elemento.style.left = `709px`;
         }
 
@@ -100,56 +111,114 @@ function gerandoTecla(nota, pressaoDeClique) {
         } else if (pressaoDeClique == 1) {
             elemento.style.height = `30px`;
         } else {
-            elemento.style.height = `30px`;
+            elemento.style.height = `40px`;
         }
 
         if (nota === "C1") {
-            elemento.innerText = `Q`;
+            elemento.innerText = `q`;
+            btn = `q`
             elemento.style.left = `50px`;
         } else if (nota === "D1") {
-            elemento.innerText = `W`;
+            elemento.innerText = `w`;
+            btn = `w`
             elemento.style.left = `102px`;
         } else if (nota === "E1") {
-            elemento.innerText = `E`;
+            elemento.innerText = `e`;
+            btn = `e`
             elemento.style.left = `154px`;
         } else if (nota === "F1") {
-            elemento.innerText = `R`;
+            elemento.innerText = `r`;
+            btn = `r`
             elemento.style.left = `206px`;
         } else if (nota === "G1") {
-            elemento.innerText = `T`;
+            elemento.innerText = `t`;
+            btn = `t`
             elemento.style.left = `258px`;
         } else if (nota === "A1") {
-            elemento.innerText = `Y`;
+            elemento.innerText = `y`;
+            btn = `y`
             elemento.style.left = `310px`;
         } else if (nota === "B1") {
-            elemento.innerText = `U`;
+            elemento.innerText = `u`;
+            btn = `u`
             elemento.style.left = `361px`;
         } else if (nota === "C2") {
             // Segunda oitava
-            elemento.innerText = `Z`;
+            elemento.innerText = `z`;
+            btn = `z`
             elemento.style.left = `413px`;
         } else if (nota === "D2") {
-            elemento.innerText = `X`;
+            elemento.innerText = `x`;
+            btn = `x`
             elemento.style.left = `465px`;
         } else if (nota === "E2") {
-            elemento.innerText = `C`;
+            elemento.innerText = `c`;
+            btn = `c`
             elemento.style.left = `517px`;
         } else if (nota === "F2") {
-            elemento.innerText = `V`;
+            elemento.innerText = `v`;
+            btn = `v`
             elemento.style.left = `569px`;
         } else if (nota === "G2") {
-            elemento.innerText = `B`;
+            elemento.innerText = `b`;
+            btn = `b`
             elemento.style.left = `621px`;
         } else if (nota === "A2") {
-            elemento.innerText = `N`;
+            elemento.innerText = `n`;
+            btn = `n`
             elemento.style.left = `673px`;
         } else if (nota === "B2") {
-            elemento.innerText = `M`;
+            elemento.innerText = `m`;
+            btn = `m`
             elemento.style.left = `724px`;
         }
     };
     
-    return elemento;
+    return [elemento, btn, cor, pressaoDeClique];
+};
+
+function animacaoComRitmo_definirMomentoMaisDuracaoParaClique(cor, pressaoDeClique) {
+    let alturaDaRotaParaAsNotas = rotaParaAsNotas.getBoundingClientRect().height;
+    let momento;
+    let duracao;
+    
+    if (cor == 'preta') { 
+        if (pressaoDeClique == 2) {
+            momento = alturaDaRotaParaAsNotas - 175;
+            duracao = 500;
+        } else if (pressaoDeClique == 1) {       
+            momento = alturaDaRotaParaAsNotas - 150;
+            duracao = 400;
+        }
+        
+    } else if (cor == 'branca') {
+        if (pressaoDeClique == 4) {
+            momento = alturaDaRotaParaAsNotas - 278;
+            duracao = 1500;
+        } else if (pressaoDeClique == 3) {       
+            momento = alturaDaRotaParaAsNotas - 218;
+            duracao = 1000;
+        } if (pressaoDeClique == 2) {
+            momento = alturaDaRotaParaAsNotas - 188;
+            duracao = 500;
+        } else if (pressaoDeClique == 1) {       
+            momento = alturaDaRotaParaAsNotas - 150;
+            duracao = 400;
+        }
+    };
+    
+    return [momento, duracao];
+};
+
+function animacaoComRitmo_enviandoDadosParaScriptParaUsuarios(duracao, btn) {
+    let mensagem = new CustomEvent('enviandoDadosParaScriptParaUsuarios', {
+        detail: {
+            duracao: duracao,
+            btnQueDeveClicar: btn
+        }
+    });
+
+    dispatchEvent(mensagem);
 };
 
 function animacaoComRitmo_calculosParaResponsividade() {
@@ -164,13 +233,17 @@ function animacaoComRitmo_calculosParaResponsividade() {
     };
 };
 
-function animacaoComRitmo(elemento, tempoParaAparecer) {
+function animacaoComRitmo(elemento, tempoParaAparecer, btn, cor, pressaoDeClique) {
     let idAnimacao = null;
     let dadosParaResponsividade = animacaoComRitmo_calculosParaResponsividade();
 
     setTimeout(() => {
+        let enviouDados = false;
+
         let duracaoDoFramePassado = 0;
         let posicaoY = 0;
+    
+        let momentoMaisDuracao = animacaoComRitmo_definirMomentoMaisDuracaoParaClique(cor, pressaoDeClique);
 
         function movendoTecla(duracaoDoFrameAtual) {
             let veloc = 100;
@@ -178,6 +251,11 @@ function animacaoComRitmo(elemento, tempoParaAparecer) {
             let deltaTime = (duracaoDoFrameAtual - duracaoDoFramePassado) / 1000;
             duracaoDoFramePassado = duracaoDoFrameAtual;
             
+            if (posicaoY >= momentoMaisDuracao[0] && enviouDados == false) {
+                animacaoComRitmo_enviandoDadosParaScriptParaUsuarios(momentoMaisDuracao[1], btn);
+                enviouDados = true;
+            };
+
             if (deltaTime < 1 && posicaoY <= dadosParaResponsividade.limiteDeMovimento) {
                 posicaoY += veloc * deltaTime;
                 elemento.style.transform = `translateY(${posicaoY}px)`;
@@ -190,7 +268,6 @@ function animacaoComRitmo(elemento, tempoParaAparecer) {
 
             requestAnimationFrame(movendoTecla);
         }; requestAnimationFrame(movendoTecla);
-    
     }, tempoParaAparecer)
 };
 
@@ -210,13 +287,13 @@ async function carregarJsonDeRitmo(url) {
         console.log(`Falha em requisitar JSON de ritmo - ${e}`);
     } finally {
         console.log(`Requisição encerrada.`);
-    }
-}
+    };
+};
 
 function executandoArquivoJsonDeRitmo() {
     ritmoDasTeclas.forEach((el) => {
         inserindoTeclaNoDOM(el.tecla, el.nota, el.tempoParaAparecer, el.pressaoDeClique)
-    })
+    });
 };
 
 window.addEventListener('enviandoURL', informandoURL);
