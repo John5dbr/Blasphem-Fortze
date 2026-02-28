@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main class="jogo">
+        <section class="wallpaper">
+            <section class="principal">
+                <article class="principal__disco">
+                    <article class="disco__roela"></article>
+                </article>
+                <section id="areaDeJogo">
+                <section id="rotaParaAsNotas">
+                    <piano-001>
+                        <span slot="oitavas">
+                            <uma-oitava></uma-oitava>
+                            <dois-oitava></dois-oitava>
+                        </span>
+                    </piano-001>
+                </section>
+            </section>
+            </section>
+        </section>
+        <section id="abaParaMusicas" class="areaDeMusicas naoAparecendo__AbaDeMusica" data-aparecendo="false">
+            <div id="elementoParaFazerAparecer" class="elementoParaFazerAparecer">
+                <img src="Recursos/Icones/icone-MiniBorda.png" alt="MiniBorda" class="elementoParaFazerAparecer__iconMiniBorda-Emcima">
+                <img src="Recursos/Icones/icone-MiniBorda.png" alt="MiniBorda" class="elementoParaFazerAparecer__iconMiniBorda-Embaixo">
+            </div>
+            <section class="areaDeMusicas__pesquisa">
+                <img src="../EstruturaVisual/Recursos/Icones/icone-Pesquisar.svg" alt="pesquisar" class="iconPesquisar">
+                <input type="text" name="inputPesquisar" id="inputPesquisar" class="inputPesquisar" placeholder="Pesquisar músicas">
+            </section>
+            <section class="areaDeMusica__areaDeAcoes">
+                <article id="iconPauseOuContinue" class="areaDeAcoes__items" data-pause="false">
+                    <img src="../EstruturaVisual/Recursos/Icones/icone-Pause.svg" alt="iconPauseOuContinue">
+                </article>
+                <article class="areaDeAcoes__items">
+                    <img src="../EstruturaVisual/Recursos/Icones/icone-Restart.svg" alt="iconRestart">
+                </article>
+                <article class="areaDeAcoes__items">
+                    <img src="../EstruturaVisual/Recursos/Icones/icone-Home.svg" alt="iconHome">
+                </article>
+            </section>
+        </section>
+    </main>
+
+    <script src="script.js" type="module"></script>
+    <script id="script-definir_ritmoParaTeclas" data-urlpararitmo="../ritmoInterativo/musica002/ritmo.json" type="module" src="../ritmoInterativo/definir_ritmoParaTeclas.js"></script>
+    <script id="script-definir_ritmoParaUsuario.js" type="module" src="../ritmoInterativo/definir_ritmoParaUsuario.js"></script>
+</body>
+</html>
