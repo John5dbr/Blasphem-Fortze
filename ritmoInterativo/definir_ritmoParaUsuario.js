@@ -1,4 +1,3 @@
-
 let historico = [];
 
 let botoes = [
@@ -10,11 +9,15 @@ let botoes = [
 
 document.addEventListener('keypress', listinerParaClique);
 function listinerParaClique(e) {
-    let clicou = analisandoHistorico(e.key);
-    if (clicou == true) {
-        console.log(`Clicou perfeitamente!!!`);
-    } else if (clicou == false) {
-        console.log(`Lamentável...`);
+    let scriptParaUsuario = document.getElementById("script-definir_ritmoParaUsuario").dataset.valido;
+
+    if (scriptParaUsuario == "false") {
+        let clicou = analisandoHistorico(e.key);
+        if (clicou == true) {
+            console.log(`Clicou perfeitamente!!!`);
+        } else if (clicou == false) {
+            console.log(`Lamentável...`);
+        };
     };
 };
 

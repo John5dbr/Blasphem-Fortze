@@ -1,0 +1,22 @@
+[
+    {
+        "idDaMusica": 1,
+        "corDoElemento": "#EF4948",
+        "urlDaLogo": "../Musicas/musica001/Recursos/Imagens/img-music.png",
+        "nomeDaMusica": "Laufey - From The Start",
+        "urlDaMusica": "../Musicas/Musica001/ritmo.json",
+        "urlDoWallpaper": "../Musicas/Musica001/Recursos/Imagens/wallpaper.jpg",
+        "urlDoDisco": "../Musicas/Musica001/Recursos/Imagens/img-Disco.webp",
+        "urlDaFonte": "https://www.youtube.com/watch?v=yvbfr4gZZus"
+    },
+    {
+        "idDaMusica": 2,
+        "corDoElemento": "#9E8841",
+        "urlDaLogo": "../Musicas/musica002/Recursos/Imagens/img-music.jpg",
+        "nomeDaMusica": "The Legend of Zelda - Overworld Theme",
+        "urlDaMusica": "../Musicas/Musica002/ritmo.json",
+        "urlDoWallpaper": "../Musicas/Musica002/Recursos/Imagens/wallpaper.jpg",
+        "urlDoDisco": "../Musicas/Musica002/Recursos/Imagens/img-Disco.jpg",
+        "urlDaFonte": "https://www.youtube.com/watch?v=Wi1qz61Y__I&list=RDWi1qz61Y__I&start_radio=1"
+    }
+]

@@ -7,6 +7,10 @@ export class OpcaoDeMusica extends HTMLElement {
         let html = document.createElement('div');
         html.innerHTML = `
             <style>
+                :host {
+                    z-index: -1;
+                }
+
                 .areaDeMusicas__items {
                     display: flex;
                     flex-flow: row nowrap;
@@ -52,15 +56,21 @@ export class OpcaoDeMusica extends HTMLElement {
                 }
                 .areaDeMusicas__opcaoDeMusica__icon {
                     width: 8%;
+                    padding: 7px;
                     margin: 0px 15px 0px 0px;
+                    transition: all 0.3s ease-in 0s;
+                    border-radius: 100px;
                 }
+                .areaDeMusicas__opcaoDeMusica__icon:hover {
+                    background: #56565673; 
+                }   
             </style>
 
             <section class="areaDeMusicas__items">
                 <div id="lista" class="areaDeMusicas__opcaoDeMusica--elementoDeEfeitoHover"></div>
-                <img src="../EstruturaVisual/Recursos/imgDasMusicas/img-music001.png" alt="logoMusic" class="areaDeMusicas__opcaoDeMusica__logoMusic">
+                <img src="" alt="logoMusic" class="areaDeMusicas__opcaoDeMusica__logoMusic">
                 <p class="areaDeMusicas__opcaoDeMusica__p"></p>
-                <img src="../EstruturaVisual/Recursos/Icones/icone-Play.svg" alt="iconPlay" class="areaDeMusicas__opcaoDeMusica__icon">
+                <img id="iconPlay" src="../codigoCentral/Recursos/Icones/icone-Play.svg" alt="iconPlay" class="areaDeMusicas__opcaoDeMusica__icon">
             </section>
         `;
 
@@ -68,15 +78,15 @@ export class OpcaoDeMusica extends HTMLElement {
     };
 
     static get observedAttributes() {
-        return ['cor', 'url-da-logo', 'nome-da-musica'];
+        return ['cor', 'urldalogo', 'nomedamusica'];
     };
 
     attributeChangedCallback(atributo, antigoAtr, novoAtr) {
         if (atributo === 'cor') {
             this.alterarCorDeElementoHover(novoAtr);
-        } else if (atributo === 'url-da-logo') {
+        } else if (atributo === 'urldalogo') {
             this.alterarUrlDaLogo(novoAtr);
-        } else if (atributo === 'nome-da-musica') {
+        } else if (atributo === 'nomedamusica') {
             this.alterarTituloDaMusica(novoAtr);
         };
     };  
@@ -100,10 +110,29 @@ export class OpcaoDeMusica extends HTMLElement {
             };
             titulo.innerText += `...`;
         };
-        
     }
 
     connectedCallback() {
-        console.log('Entrou');
+        let iconPlay = this.shadowRoot.querySelector('#iconPlay');
+        iconPlay.addEventListener('click', iniciarJogo);
+        function iniciarJogo(e) {
+            let alvo = e.target;
+
+            document.getElementById("script-definir_ritmoParaTeclas").dataset.urlpararitmo = alvo.getAttribute('urldamusica');
+
+            let wallpaper = document.getElementById("wallpaper");
+            wallpaper.style.background = `url(${alvo.getAttribute('urldowallpaper')}) no-repeat center center / cover`;
+
+            let disco = document.getElementById("disco");
+            disco.style.background = `url(${alvo.getAttribute('urldodisco')}) no-repeat center center / cover`;
+
+            let mensagem = new CustomEvent('play', {
+                detail: 'play',
+                composed: true,
+                bubbles: false 
+            });
+
+            dispatchEvent(mensagem);
+        };
     };
 };

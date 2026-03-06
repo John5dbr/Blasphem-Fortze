@@ -1,0 +1,122 @@
+[
+    {
+        "tecla": "001",
+        "nota": "F1",
+        "tempoParaAparecer": 1,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "002",
+        "nota": "A1",
+        "tempoParaAparecer": 1.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "003",
+        "nota": "B1",
+        "tempoParaAparecer": 2,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "004",
+        "nota": "F1",
+        "tempoParaAparecer": 3.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "005",
+        "nota": "A1",
+        "tempoParaAparecer": 4,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "006",
+        "nota": "B1",
+        "tempoParaAparecer": 4.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "007",
+        "nota": "F1",
+        "tempoParaAparecer": 5.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "008",
+        "nota": "A1",
+        "tempoParaAparecer": 6,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "009",
+        "nota": "B1",
+        "tempoParaAparecer": 6.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "010",
+        "nota": "E2",
+        "tempoParaAparecer": 7,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "011",
+        "nota": "D2",
+        "tempoParaAparecer": 7.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "012",
+        "nota": "B1",
+        "tempoParaAparecer": 8,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "013",
+        "nota": "C2",
+        "tempoParaAparecer": 8.5,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "014",
+        "nota": "B1",
+        "tempoParaAparecer": 9,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "015",
+        "nota": "G1",
+        "tempoParaAparecer": 9.5,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "016",
+        "nota": "E1",
+        "tempoParaAparecer": 10.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "017",
+        "nota": "D1",
+        "tempoParaAparecer": 11.5,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "018",
+        "nota": "E1",
+        "tempoParaAparecer": 12,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "019",
+        "nota": "G1",
+        "tempoParaAparecer": 12.5,
+        "pressaoDeClique": 3
+    },
+    {
+        "tecla": "020",
+        "nota": "E1",
+        "tempoParaAparecer": 14.5,
+        "pressaoDeClique": 4
+    }
+]

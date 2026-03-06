@@ -249,9 +249,27 @@ export class doisOitava extends HTMLElement {
 
         // O que deve ocorrer quando um botao válido for clicado.
         window.addEventListener('keydown', (event) => {
-            let teclaMuitoPressionada = event.repeat;
+            if (permitirClique === true) {
+                let teclaMuitoPressionada = event.repeat;
 
-            if (!teclaMuitoPressionada) {
+                if (!teclaMuitoPressionada) {
+                    let botaoClicado = event.key;
+
+                    let botaoValido = botoes.some(el => el === botaoClicado);
+
+                    if (botaoValido) {
+                        let tecla = identificarNotaPeloBotao(botaoClicado);
+                        let elementoDaTecla = this.shadowRoot.querySelector(`#${tecla[0]}`);
+                        aplicarEfeitoVisualDeTeclaPrecionada(elementoDaTecla);
+                        expressarSom(tecla[1]);
+                    };
+                };
+            };
+        });
+
+        // O que deve ocorrer quando um botao válido não for mais clicado.
+        window.addEventListener('keyup', (event) => {
+            if (permitirClique === true) {
                 let botaoClicado = event.key;
 
                 let botaoValido = botoes.some(el => el === botaoClicado);
@@ -259,27 +277,18 @@ export class doisOitava extends HTMLElement {
                 if (botaoValido) {
                     let tecla = identificarNotaPeloBotao(botaoClicado);
                     let elementoDaTecla = this.shadowRoot.querySelector(`#${tecla[0]}`);
-                    aplicarEfeitoVisualDeTeclaPrecionada(elementoDaTecla);
-                    expressarSom(tecla[1]);
+                    retirarAplicaçãoDeEfeitoVisualDeTeclaPrecionada(elementoDaTecla);
+                    interronterSom(tecla[1]);
                 };
             };
-
-        });
-        
-        // O que deve ocorrer quando um botao válido não for mais clicado.
-        window.addEventListener('keyup', (event) => {
-            let botaoClicado = event.key;
-
-            let botaoValido = botoes.some(el => el === botaoClicado);
-
-            if (botaoValido) {
-                let tecla = identificarNotaPeloBotao(botaoClicado);
-                let elementoDaTecla = this.shadowRoot.querySelector(`#${tecla[0]}`);
-                retirarAplicaçãoDeEfeitoVisualDeTeclaPrecionada(elementoDaTecla);
-                interronterSom(tecla[1]);
-            };
         });
 
+        let permitirClique = true;
+        window.addEventListener('entrouParaPesquisar', () => {
+            permitirClique = false;
+        });
+        window.addEventListener('saiuDaPesquisa', () => {
+            permitirClique = true;
+        });
     };
 };
-

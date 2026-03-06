@@ -9,6 +9,10 @@ export class visualDoPiano001 extends HTMLElement {
             <style>
                 /* ============ Estilização Visual do Piano ============ */
 
+                :host {
+                    z-index: 1;
+                }
+
                 #piano {
                     display: inline-block;
                     padding: 100px 50px 10px 50px;
