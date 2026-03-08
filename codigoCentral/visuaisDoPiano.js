@@ -15,9 +15,11 @@ export class visualDoPiano001 extends HTMLElement {
 
                 #piano {
                     display: inline-block;
-                    padding: 100px 50px 10px 50px;
+                    padding: 98px 48px 8px 48px;
+                    border: 2px solid black;
 
-                    background: gray;
+                    background: rgb(85, 85, 85, 0.0);
+                    box-shadow: 0px 0px 25px rgb(0, 0, 0, 0.25);
                 }
 
                 #teclas { 

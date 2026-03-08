@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Recursos/Imagens/Favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Blasphem Fortze</title>
 </head>
 <body>
     <main class="jogo">
@@ -23,6 +24,21 @@
                         </piano-001>
                     </section>
                 </section>
+                <article id="abaDeStatus" class="principal__abaDeStatus">
+                    <img class="abaDeStatus__miniBorda-1" src="Recursos/Icones/icone-MiniBorda.png" alt="icone-MiniBorda">
+                    <img class="abaDeStatus__miniBorda-2" src="Recursos/Icones/icone-MiniBorda.png" alt="icone-MiniBorda">
+                    <p id="abaDeStatus__titulo" class="abaDeStatus__titulo"></p>
+                    <ul id="abaDeStatus__infors" class="abaDeStatus__infors">
+                        <li class="abaDeStatus__infors__items infors__items-1"></li>
+                        <li class="abaDeStatus__infors__items infors__items-2"></li>
+                        <li class="abaDeStatus__infors__items infors__items-3"></li>
+                        <li class="abaDeStatus__infors__items infors__items-4"></li>
+                    </ul>
+                    <div id="points" class="abaDeStatus__points">
+                        <div id="textPoints" class="abaDeStatus__points__textPoints">+130</div>
+                        <div id="visualPoints" class="abaDeStatus__points__visualPoints"></div>
+                    </div>
+                </article>
             </section>
         </section>
         <section id="abaParaMusicas" class="areaDeMusicas naoAparecendo__AbaDeMusica" data-aparecendo="false">
@@ -46,12 +62,18 @@
                 </article>
             </section>
             <section id="abaParaOpcaoDeMusicas" class="areaDeMusica__abaParaOpcaoDeMusicas"></section>
-            <section id="areaDeAcoes-1" class="areaDeMusica__areaDeAcoes-2">
+            <section id="areaDeAcoes-2" class="areaDeMusica__areaDeAcoes-2">
                 <article id="btnMaisOpcoes" class="areaDeAcoes-2__items" data-quant="0">
-                    <img src="../EstruturaVisual/Recursos/Icones/icone-Mais.svg" alt="iconMaisOpcoes">
+                    <img src="../testeControlados/Recursos/Icones/icone-Mais.svg" alt="iconMaisOpcoes">
+                </article>
+                <article id="btnAlerta" class="areaDeAcoes-2__items">
+                    <img src="../testeControlados/Recursos/Icones/icone-Alerta.svg" alt="iconAlerta">
                 </article>
                 <article id="btnFonte" class="areaDeAcoes-2__items">
-                    <img src="../EstruturaVisual/Recursos/Icones/icone-Fonte.svg" alt="iconFonteDasMusicas">
+                    <img src="../testeControlados/Recursos/Icones/icone-Fonte.svg" alt="iconFonteDasMusicas">
+                </article>
+                <article id="btnMostrarStatus" class="areaDeAcoes-2__items">
+                    <img src="../testeControlados/Recursos/Icones/icone-Status.svg" alt="iconMostrarStatus">
                 </article>
             </section>
         </section>

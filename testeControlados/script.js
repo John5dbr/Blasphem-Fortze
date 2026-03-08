@@ -1,8 +1,6 @@
-/* ======================================================================================= */
 import { visualDoPiano001 } from "../codigoCentral/visuaisDoPiano.js";
 import { umaOitava } from "../codigoCentral/umaOitava.js";
 import { doisOitava } from "../codigoCentral/doisOitava.js";
-/* ======================================================================================= */
 import { OpcaoDeMusica } from "../codigoCentral/opcaoDeMusica.js";
 
 customElements.define('piano-001', visualDoPiano001);
@@ -10,34 +8,8 @@ customElements.define('uma-oitava', umaOitava);
 customElements.define('dois-oitava', doisOitava);
 customElements.define('opcao-musica', OpcaoDeMusica);
 
-/* ======================================================================================= */
-function alterarMusica() {
-    let url = document.getElementById('script-definir_ritmoParaTeclas').dataset.urlpararitmo;
-    musicAntiga = url;
-
-    let mensagem = new CustomEvent('enviandoURL', {
-        detail: url
-    });
-
-    dispatchEvent(mensagem);
-};
-/* ======================================================================================= */
-
-let fonte;
-
-let musicAntiga;
-let musicAtual;
-
-let opcoesDeMusicas = [];
-
 window.addEventListener('DOMContentLoaded', inicializarFuncoesBasicas);
 function inicializarFuncoesBasicas() {
-    
-    /* ======================================================================================= */
-    let rotaParaAsNotas = document.getElementById('rotaParaAsNotas');
-    rotaParaAsNotas.addEventListener('click', alterarMusica);
-    /* ======================================================================================= */
-
     let elementoParaFazerAparecer = document.getElementById("elementoParaFazerAparecer");
     elementoParaFazerAparecer.addEventListener('mouseenter', () => {
         let abaParaMusicas = document.getElementById("abaParaMusicas");
@@ -86,33 +58,38 @@ function inicializarFuncoesBasicas() {
 
     let btnPausar = document.getElementById("iconPauseOuContinue");
     btnPausar.addEventListener('click', () => {
+        if (!musicaTocada.src || musicaTocada.currentTime < 0.1) return;
+
         alternarEntrePauseContinue(btnPausar);
         pausarOuContinuarAnimacao(btnPausar);
+
+        if (btnPausar.dataset.pause == 'true') {
+            musicaTocada.pause();
+        } else {
+            musicaTocada.play();
+        };
     });
 
     let btnRestart = document.getElementById("iconRestart");
     btnRestart.addEventListener('click', () => {
+        clearTimeout(timeoutDoPlay);
+        clearTimeout(timeoutDoAlterarMusica);
+        clearTimeout(timeoutDaMusica);
+
+        interromperMusica();
+
         let btnPausar = document.getElementById("iconPauseOuContinue");
+
+        let mensagem = new CustomEvent('restart', {detail: 'restart'});
+        dispatchEvent(mensagem);
+
+        let tecla = [...document.getElementsByClassName("tecla")];
+        tecla.forEach(el => el.remove());
+
         if (btnPausar.dataset.pause == 'true') {
-            alternarEntrePauseContinue(btnPausar);
             pausarOuContinuarAnimacao(btnPausar);
-
-            let mensagem = new CustomEvent('restart', {detail: 'restart'}); 
-            dispatchEvent(mensagem);
-
-            let tecla = [...document.getElementsByClassName("tecla")];
-            tecla.forEach(el => el.remove());
-
-            setTimeout(alterarMusica, 1000);
-        } else {
-            let mensagem = new CustomEvent('restart', {detail: 'restart'});
-            dispatchEvent(mensagem);
-
-            let tecla = [...document.getElementsByClassName("tecla")];
-            tecla.forEach(el => el.remove());
-
-            alterarMusica();
-        };
+            alternarEntrePauseContinue(btnPausar);
+        }
     });
 
     async function requisitarMusicas() {
@@ -159,6 +136,8 @@ function inicializarFuncoesBasicas() {
                 elemento.setAttribute('urldowallpaper', el.urlDoWallpaper);
                 elemento.setAttribute('urldodisco', el.urlDoDisco);
                 elemento.setAttribute('urldafonte', el.urlDaFonte);
+                elemento.setAttribute('urldamusicatocada', el.urlDaMusicaTocada);
+                elemento.setAttribute('duracao', el.duracao);
                 elemento.classList.add('opcaoDeMusica__items');
 
                 opcoesDeMusicas.push(elemento);
@@ -173,12 +152,11 @@ function inicializarFuncoesBasicas() {
             abaParaOpcaoDeMusicas.append(englobador);
         };
     };
-    
+ 
     abaParaOpcaoDeMusicas.addEventListener('click', trocarDeMusica);
-    function trocarDeMusica(e) {
+    async function trocarDeMusica(e) {
         let alvo = e.target;
         if (alvo.classList.contains("opcaoDeMusica__items")) {
-
             document.getElementById("script-definir_ritmoParaTeclas").dataset.urlpararitmo = alvo.getAttribute('urldamusica');
             
             let wallpaper = document.getElementById("wallpaper");
@@ -188,6 +166,7 @@ function inicializarFuncoesBasicas() {
             disco.style.background = `url(${alvo.getAttribute('urldodisco')}) no-repeat center center / cover`; 
 
             musicAtual = alvo.getAttribute('urldamusica');
+            urlDaMusicaTocada = alvo.getAttribute('urldamusicatocada');
 
             if (musicAtual != musicAntiga) {
                 let btnPause = document.getElementById('iconPauseOuContinue');
@@ -204,6 +183,79 @@ function inicializarFuncoesBasicas() {
             };
 
             fonte = alvo.getAttribute('urldafonte');
+
+            let abaDeStatus = document.getElementById('abaDeStatus');
+
+            let nomeDaMusica = alvo.getAttribute('nomedamusica');
+            let abaTitulo = abaDeStatus.querySelector('#abaDeStatus__titulo');         
+            if (nomeDaMusica.length <= 25) {
+                abaTitulo.innerText = `${nomeDaMusica}`;
+            } else if (nomeDaMusica.length >= 26) {
+                abaTitulo.innerText = ``;
+                for (let cont = 0; cont <= 20 ; cont++) {
+                    abaTitulo.innerHTML += `${nomeDaMusica[cont]}`; 
+                };
+                abaTitulo.innerText += `...`;
+                nomeDaMusica = abaTitulo.innerText;
+            };
+
+            let DadosSobreDificMaisQuantDeTeclasMaisMaxPont = async () => {
+                let ritmo = null;
+                ritmo = await fetch(`${document.getElementById("script-definir_ritmoParaTeclas").dataset.urlpararitmo}`);
+                if (ritmo.ok) {
+                    ritmo = await ritmo.json();
+                }
+
+                let quantDeTeclas = ritmo.length;
+                let dific = null;
+                if (quantDeTeclas <= 75) {
+                    dific = 'Easy';
+                } else if (quantDeTeclas >= 76 && quantDeTeclas <= 150) {
+                    dific = 'Medium';
+                } else {
+                    dific = 'Hard';
+                };
+
+                let maxPont = quantDeTeclas * 2;
+
+                return [quantDeTeclas, dific, maxPont];
+            };
+
+            let dificMaisQuantDeTeclas = await DadosSobreDificMaisQuantDeTeclasMaisMaxPont();
+        
+            let quantDeTeclas = dificMaisQuantDeTeclas[0];   
+            let abaQuantDeTeclas = abaDeStatus.querySelector('.infors__items-4');
+            abaQuantDeTeclas.innerHTML = `Number of <br> Keys:  ${quantDeTeclas}`;
+
+            let dificuldade = dificMaisQuantDeTeclas[1];   
+            let abaDeDific = abaDeStatus.querySelector('.infors__items-1');
+            abaDeDific.innerHTML = `Difficulty: <br> ${dificuldade}`;
+
+            let duracaoDaMusica = alvo.getAttribute('duracao');   
+            let duracao = abaDeStatus.querySelector('.infors__items-2');
+            duracao.innerHTML = `Duration: <br> ${duracaoDaMusica}`;
+
+            let maxPont = dificMaisQuantDeTeclas[2];   
+            let abaMaxPont = abaDeStatus.querySelector('.infors__items-3');
+            abaMaxPont.innerHTML = `Max Score: <br>  ${maxPont}`;
+
+            let dados = {
+                cor: alvo.getAttribute('cor'),
+                urldalogo: alvo.getAttribute('urldalogo'),
+                nomedamusica: nomeDaMusica,
+                urldamusica: alvo.getAttribute('urldamusica'),
+                urldowallpaper: alvo.getAttribute('urldowallpaper'),
+                urldodisco: alvo.getAttribute('urldodisco'),
+                urldafonte: alvo.getAttribute('urldafonte'),
+                urldamusicatocada: alvo.getAttribute('urldamusicatocada'),
+                duracao: alvo.getAttribute('duracao'),
+                dific: dificuldade,
+                maxPont: maxPont,
+                quantDeTeclas: quantDeTeclas 
+            };
+            localStorage.setItem('dadosDaMusicaPadrao', JSON.stringify(dados));
+
+            interromperMusica();
         };
     };
 
@@ -236,33 +288,83 @@ function inicializarFuncoesBasicas() {
         window.open(fonte, "_blank", "noopener,noreferrer");
     });
 
+    let btnAlerta = document.getElementById("btnAlerta");
+    btnAlerta.addEventListener('click', () => {
+        window.location.reload();
+    });
+
+    let btnMostrarStatus = document.getElementById("btnMostrarStatus");
+    btnMostrarStatus.addEventListener('click', () => {
+        let abaDeStatus = document.getElementById('abaDeStatus');
+        abaDeStatus.classList.toggle('principal__abaDeStatus--aparecendo');
+    });
     requisitarMusicas();
 };
 
-window.addEventListener('play', play)
+let fonte;
+
+let musicAntiga;
+let musicAtual;
+
+let opcoesDeMusicas = [];
+
+let urlDaMusicaTocada;
+let musicaTocada = new Audio();
+
+function alterarMusica() {
+    let url = document.getElementById('script-definir_ritmoParaTeclas').dataset.urlpararitmo;
+    musicAntiga = url;
+
+    let mensagem = new CustomEvent('enviandoURL', { detail: url });
+    dispatchEvent(mensagem);
+};
+
+function playNaMusica() {
+    musicaTocada.pause();
+    musicaTocada.currentTime = 0;
+    musicaTocada.src = `${urlDaMusicaTocada}`;
+    timeoutDaMusica = setTimeout(() => {
+        musicaTocada.play();
+    }, tempoParaMusicaComecar());
+};
+function interromperMusica() {
+    musicaTocada.pause();
+    musicaTocada.currentTime = 0;
+    musicaTocada.load();
+};
+
+function tempoParaMusicaComecar() {
+    let tempoParaComecar = window.innerHeight * 7.05;
+    return tempoParaComecar;
+};
+
+let timeoutDaMusica = null;
+let timeoutDoPlay = null;
+let timeoutDoAlterarMusica = null;  
+window.addEventListener('play', play);
 function play() {
-    setTimeout(() => {
-        let btnPausar = document.getElementById("iconPauseOuContinue");
-        if (btnPausar.dataset.pause == 'true') {
-            alternarEntrePauseContinue(btnPausar);
-            pausarOuContinuarAnimacao(btnPausar);
+    clearTimeout(timeoutDoPlay);
+    clearTimeout(timeoutDoAlterarMusica);
+    clearTimeout(timeoutDaMusica);
 
-            let mensagem = new CustomEvent('restart', {detail: 'restart'}); 
-            dispatchEvent(mensagem);
+    musicaTocada.pause();
+    musicaTocada.currentTime = 0;
 
-            let tecla = [...document.getElementsByClassName("tecla")];
-            tecla.forEach(el => el.remove());
+    let btnPausar = document.getElementById("iconPauseOuContinue");
+    if (btnPausar.dataset.pause == 'true') {
+        alternarEntrePauseContinue(btnPausar);
+        pausarOuContinuarAnimacao(btnPausar);
+    };
 
-            setTimeout(alterarMusica, 1000);
-        } else {
-            let mensagem = new CustomEvent('restart', {detail: 'restart'});
-            dispatchEvent(mensagem);
+    let mensagem = new CustomEvent('restart', {detail: 'restart'});
+    dispatchEvent(mensagem);
 
-            let tecla = [...document.getElementsByClassName("tecla")];
-            tecla.forEach(el => el.remove());
+    let tecla = [...document.getElementsByClassName("tecla")];
+    tecla.forEach(el => el.remove());
 
-            setTimeout(alterarMusica, 1000);
-        };
+    timeoutDoPlay = setTimeout(() => {
+        timeoutDoAlterarMusica = setTimeout(alterarMusica, 1000);
+        playNaMusica();
     }, 500);
 };
 
@@ -311,3 +413,39 @@ function calcularQuantidadeMaximaDeOpcoes() {
 
     return quantDeOpcoes - 1;
 };
+
+(async function estilizarComDadosDaMusicaPadrao() {
+    let dados = JSON.parse(localStorage.getItem('dadosDaMusicaPadrao'));
+    console.log(dados.urldamusicatocada);
+
+    document.getElementById("script-definir_ritmoParaTeclas").dataset.urlpararitmo = dados.urldamusica;
+    
+    let wallpaper = document.getElementById("wallpaper");
+    wallpaper.style.background = `url(${dados.urldowallpaper}) no-repeat center center / cover`;
+
+    let disco = document.getElementById("disco");
+    disco.style.background = `url(${dados.urldodisco}) no-repeat center center / cover`; 
+
+    musicAtual = dados.urldamusica;
+    urlDaMusicaTocada = dados.urldamusicatocada;
+
+    fonte = dados.urldafonte;
+
+    let abaDeStatus = document.getElementById('abaDeStatus');
+
+    let abaTitulo = abaDeStatus.querySelector('#abaDeStatus__titulo');         
+    abaTitulo.innerText = `${dados.nomedamusica}`;
+
+    let abaQuantDeTeclas = abaDeStatus.querySelector('.infors__items-4');
+    abaQuantDeTeclas.innerHTML = `Number of <br> Keys:  ${dados.quantDeTeclas}`;
+ 
+    let abaDeDific = abaDeStatus.querySelector('.infors__items-1');
+    abaDeDific.innerHTML = `Difficulty: <br> ${dados.dific}`;
+ 
+    let duracao = abaDeStatus.querySelector('.infors__items-2');
+    duracao.innerHTML = `Duration: <br> ${dados.duracao}`;
+  
+    let abaMaxPont = abaDeStatus.querySelector('.infors__items-3');
+    abaMaxPont.innerHTML = `Max Score: <br>  ${dados.maxPont}`;
+})();
+

@@ -10,7 +10,9 @@ function verificandoPause(e) {
         }); 
     } else if (interromperAnimacao == 'NaoInterromper') {
         historicoDeTimeouts.forEach(el => {
-            el.id = setTimeout(el.fn, el.tempoRestante);
+            let tempoFinal = Math.max(0, el.tempoRestante);
+            el.criadoEm = Date.now();
+            el.id = setTimeout(el.fn, tempoFinal);
         });
     };
 };
@@ -20,6 +22,8 @@ function limparSetTimeOuts() {
     historicoDeTimeouts.forEach(el => {
        clearTimeout(el.id);
     }); 
+    historicoDeTimeouts = [];   
+    interromperAnimacao = 'NaoInterromper';
 };
 
 let rotaParaAsNotas = document.getElementById("rotaParaAsNotas");
@@ -59,13 +63,14 @@ function gerandoTecla(nota, pressaoDeClique) {
         align-items: center;
         font: normal bold 1.5em arial;
         position: absolute;
-        top: -174px;`;
+        top: -174px;
+        border-radius: 2.5px;`;
 
     if (cor === 'preta') {
         elemento.style.cssText += `
             width: 32px;
             
-            background: black;
+            background: rgb(0,0,0,0.99);
             color: white;
             border: 1px solid black;
             
@@ -126,7 +131,7 @@ function gerandoTecla(nota, pressaoDeClique) {
         elemento.style.cssText += `
             width: 53px;
             
-            background: white;
+            background: rgb(255,255,255,0.75);
             color: black;
             border: 2px solid black;
             
@@ -256,7 +261,7 @@ function animacaoComRitmo_enviandoDadosParaScriptParaUsuarios(duracao, btn) {
 function animacaoComRitmo_calculosParaResponsividade() {
     let alturaDaRotaParaAsNotas = rotaParaAsNotas.getBoundingClientRect().height;
 
-    let limiteDeMovimento = alturaDaRotaParaAsNotas - 10;
+    let limiteDeMovimento = alturaDaRotaParaAsNotas + 30;
     let tempoParaApagarElemento = alturaDaRotaParaAsNotas * 10;
 
     return { 
@@ -277,7 +282,7 @@ function animacaoComRitmo(elemento, tempoParaAparecer, btn, cor, pressaoDeClique
     
     let momentoMaisDuracao = animacaoComRitmo_definirMomentoMaisDuracaoParaClique(cor, pressaoDeClique);
 
-    let veloc = 100; 
+    let veloc = 125; 
 
     function movendoTecla(duracaoDoFrameAtual) {
         idAnimacao = requestAnimationFrame(movendoTecla);
@@ -317,9 +322,12 @@ function animacaoComRitmo(elemento, tempoParaAparecer, btn, cor, pressaoDeClique
     let animacao = setTimeout(iniciarAnimacao, tempoParaAparecer);
     
     historicoDeTimeouts.push({id: animacao, tempoRestante: tempoParaAparecer, criadoEm: Date.now(), fn: iniciarAnimacao});
+};
 
+let carregamentoAtual = null;
 let ritmoDasTeclas;
 async function carregarJsonDeRitmo(url) {
+    carregamentoAtual = url;
     try {
         let ritmo = await fetch(`${url}`);
         if (ritmo.ok) {
@@ -327,9 +335,13 @@ async function carregarJsonDeRitmo(url) {
         } else {
             throw new TypeError(`ERROR.`);
         }
-        ritmoDasTeclas = ritmo;
-        executandoArquivoJsonDeRitmo();
-        console.log(`Requisição feita com exito.`);
+        if (carregamentoAtual !== url) { 
+            return;
+        } else {
+            ritmoDasTeclas = ritmo;
+            executandoArquivoJsonDeRitmo();
+            console.log(`Requisição feita com exito.`); 
+        };
     } catch(e) {
         console.log(`Falha em requisitar JSON de ritmo - ${e}`);
     } finally {
@@ -341,10 +353,17 @@ function executandoArquivoJsonDeRitmo() {
     ritmoDasTeclas.forEach((el) => {
         inserindoTeclaNoDOM(el.tecla, el.nota, el.tempoParaAparecer, el.pressaoDeClique);
     });
+
+    if (interromperAnimacao == 'Interromper') {
+        historicoDeTimeouts.forEach(el => {
+            clearTimeout(el.id);
+            el.tempoRestante = el.tempoRestante - (Date.now() - el.criadoEm);
+        });
+    };
 };
 
 window.addEventListener('enviandoURL', informandoURL);
-async function informandoURL(el) {
+function informandoURL(el) {
     let url = el.detail;
     carregarJsonDeRitmo(url);
 };
