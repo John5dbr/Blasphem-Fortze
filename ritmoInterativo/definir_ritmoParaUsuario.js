@@ -7,17 +7,40 @@ let botoes = [
     "z","x","c","v","b","n","m"
 ];
 
+let valorDeUmCliqueParaVisualPoints = null;
+let visualPoints = 0;
+
+window.addEventListener('informarMaxPont', (e) => {
+    valorDeUmCliqueParaVisualPoints = 100 / e.detail;
+});
+window.addEventListener('restart', () => {
+    pontos = 0;
+    visualPoints = 0;
+    visualMostrarPont.style.width = '0%';
+    historico = [];
+});
+
+let pontos = 0;
+let visualMostrarPont = document.getElementById("visualPoints");
+let txtMostrarPont = document.getElementById("textPoints");
+
 document.addEventListener('keypress', listinerParaClique);
 function listinerParaClique(e) {
     let scriptParaUsuario = document.getElementById("script-definir_ritmoParaUsuario").dataset.valido;
 
     if (scriptParaUsuario == "false") {
         let clicou = analisandoHistorico(e.key);
-        if (clicou == true) {
-            console.log(`Clicou perfeitamente!!!`);
-        } else if (clicou == false) {
-            console.log(`Lamentável...`);
-        };
+            if (clicou == true) {
+                pontos++
+                txtMostrarPont.innerText = pontos;
+                visualPoints = Math.min(100, visualPoints + valorDeUmCliqueParaVisualPoints);
+                visualMostrarPont.style.width = `${visualPoints}%`;
+            } else if (clicou == false && pontos >= 1) {
+                pontos--
+                txtMostrarPont.innerText = pontos;
+                visualPoints = Math.max(0, visualPoints - valorDeUmCliqueParaVisualPoints);
+                visualMostrarPont.style.width = `${visualPoints}%`;
+            };
     };
 };
 

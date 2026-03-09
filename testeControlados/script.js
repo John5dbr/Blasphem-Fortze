@@ -33,15 +33,20 @@ function inicializarFuncoesBasicas() {
     let btnPesquisar = document.getElementById("inputPesquisar");
     btnPesquisar.addEventListener('focus', () => {
         document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "true";
-
-        let mensagem = new CustomEvent('entrouParaPesquisar', {detail: 'entrouParaPesquisar'});
+        let mensagem = new CustomEvent('ImpedirInteração', {detail: 'ImpedirInteração'});
         dispatchEvent(mensagem);
     });
     btnPesquisar.addEventListener('blur', () => {
-        document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "false";
-
-        let mensagem = new CustomEvent('saiuDaPesquisa', {detail: 'saiuDaPesquisa'});
-        dispatchEvent(mensagem);
+        let btnPausar = document.getElementById("iconPauseOuContinue");
+        if (btnPausar.dataset.pause == 'true') {
+            document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "true";
+            let mensagem = new CustomEvent('ImpedirInteração', {detail: 'ImpedirInteração'});
+            dispatchEvent(mensagem);
+        } else {
+            document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "false";
+            let mensagem = new CustomEvent('PermitirInteração', {detail: 'PermitirInteração'});
+            dispatchEvent(mensagem);
+        }
     });
     btnPesquisar.addEventListener('keydown', (event) => {
         if (event.key == 'Enter') {
@@ -65,8 +70,15 @@ function inicializarFuncoesBasicas() {
 
         if (btnPausar.dataset.pause == 'true') {
             musicaTocada.pause();
+
+            document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "true";
+            let mensagem = new CustomEvent('ImpedirInteração', {detail: 'ImpedirInteração'});
+            dispatchEvent(mensagem);
         } else {
             musicaTocada.play();
+            document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "false";
+            let mensagem = new CustomEvent('PermitirInteração', {detail: 'PermitirInteração'});
+            dispatchEvent(mensagem);
         };
     });
 
@@ -90,6 +102,14 @@ function inicializarFuncoesBasicas() {
             pausarOuContinuarAnimacao(btnPausar);
             alternarEntrePauseContinue(btnPausar);
         }
+
+        document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "true";
+        let mensagem_2 = new CustomEvent('ImpedirInteração', {detail: 'ImpedirInteração'});
+        dispatchEvent(mensagem_2);
+
+        let txtMostrarPont = document.getElementById("textPoints");
+        txtMostrarPont.innerText = `0`;
+        jogoOcorrendo = false;
     });
 
     async function requisitarMusicas() {
@@ -157,6 +177,10 @@ function inicializarFuncoesBasicas() {
     async function trocarDeMusica(e) {
         let alvo = e.target;
         if (alvo.classList.contains("opcaoDeMusica__items")) {
+            clearTimeout(timeoutDoAlterarMusica);
+            clearTimeout(timeoutDaMusica);
+            interromperMusica();
+
             document.getElementById("script-definir_ritmoParaTeclas").dataset.urlpararitmo = alvo.getAttribute('urldamusica');
             
             let wallpaper = document.getElementById("wallpaper");
@@ -255,7 +279,20 @@ function inicializarFuncoesBasicas() {
             };
             localStorage.setItem('dadosDaMusicaPadrao', JSON.stringify(dados));
 
-            interromperMusica();
+            document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "true";
+            let mensagem_2 = new CustomEvent('ImpedirInteração', {detail: 'ImpedirInteração'});
+            dispatchEvent(mensagem_2);
+
+            let txtMostrarPont = document.getElementById("textPoints");
+            txtMostrarPont.innerText = `0`;
+
+            let visualMostrarPont = document.getElementById("visualPoints");
+            visualMostrarPont.style.background = `${alvo.getAttribute('cor')}`;
+
+            let mensagem_3 = new CustomEvent('informarMaxPont', {detail: maxPont});
+            dispatchEvent(mensagem_3);
+
+            jogoOcorrendo = false;
         };
     };
 
@@ -332,17 +369,34 @@ function interromperMusica() {
     musicaTocada.currentTime = 0;
     musicaTocada.load();
 };
-
 function tempoParaMusicaComecar() {
     let tempoParaComecar = window.innerHeight * 7.05;
     return tempoParaComecar;
 };
+
+let jogoOcorrendo = false;
+musicaTocada.addEventListener('playing', () => {
+    let btnPesquisar = document.getElementById("inputPesquisar");
+    btnPesquisar.blur();
+
+    document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "false";
+    let mensagem = new CustomEvent('PermitirInteração', {detail: 'PermitirInteração'});
+    dispatchEvent(mensagem);
+})
+musicaTocada.addEventListener('ended', () => {
+    document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "true";
+    let mensagem = new CustomEvent('ImpedirInteração', {detail: 'ImpedirInteração'});
+    dispatchEvent(mensagem);
+    jogoOcorrendo = false;
+})
 
 let timeoutDaMusica = null;
 let timeoutDoPlay = null;
 let timeoutDoAlterarMusica = null;  
 window.addEventListener('play', play);
 function play() {
+    jogoOcorrendo = true;
+
     clearTimeout(timeoutDoPlay);
     clearTimeout(timeoutDoAlterarMusica);
     clearTimeout(timeoutDaMusica);
@@ -416,7 +470,6 @@ function calcularQuantidadeMaximaDeOpcoes() {
 
 (async function estilizarComDadosDaMusicaPadrao() {
     let dados = JSON.parse(localStorage.getItem('dadosDaMusicaPadrao'));
-    console.log(dados.urldamusicatocada);
 
     document.getElementById("script-definir_ritmoParaTeclas").dataset.urlpararitmo = dados.urldamusica;
     
@@ -447,5 +500,11 @@ function calcularQuantidadeMaximaDeOpcoes() {
   
     let abaMaxPont = abaDeStatus.querySelector('.infors__items-3');
     abaMaxPont.innerHTML = `Max Score: <br>  ${dados.maxPont}`;
+
+    let visualMostrarPont = document.getElementById("visualPoints");
+    visualMostrarPont.style.background = `${dados.cor}`;
 })();
 
+document.getElementById("script-definir_ritmoParaUsuario").dataset.valido = "true";
+let mensagem = new CustomEvent('ImpedirInteração', {detail: 'ImpedirInteração'});
+dispatchEvent(mensagem);

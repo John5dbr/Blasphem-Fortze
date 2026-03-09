@@ -284,10 +284,10 @@ export class umaOitava extends HTMLElement {
         });
         
         let permitirClique = true;
-        window.addEventListener('entrouParaPesquisar', () => {
+        window.addEventListener('ImpedirInteração', () => {
             permitirClique = false;
         });
-        window.addEventListener('saiuDaPesquisa', () => {
+        window.addEventListener('PermitirInteração', () => {
             permitirClique = true;
         });
     };
