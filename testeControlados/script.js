@@ -1,9 +1,9 @@
-import { visualDoPiano001 } from "../codigoCentral/visuaisDoPiano.js";
+import { visualDoPiano } from "../codigoCentral/visualDoPiano.js";
 import { umaOitava } from "../codigoCentral/umaOitava.js";
 import { doisOitava } from "../codigoCentral/doisOitava.js";
 import { OpcaoDeMusica } from "../codigoCentral/opcaoDeMusica.js";
 
-customElements.define('piano-001', visualDoPiano001);
+customElements.define('visual-piano', visualDoPiano);
 customElements.define('uma-oitava', umaOitava);
 customElements.define('dois-oitava', doisOitava);
 customElements.define('opcao-musica', OpcaoDeMusica);

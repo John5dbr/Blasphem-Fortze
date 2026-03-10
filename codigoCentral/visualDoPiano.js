@@ -1,4 +1,4 @@
-export class visualDoPiano001 extends HTMLElement {
+export class visualDoPiano extends HTMLElement {
     constructor() {
         super();
 
