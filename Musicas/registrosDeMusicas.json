@@ -8,8 +8,8 @@
         "urlDoWallpaper": "../Musicas/Musica001/Recursos/Imagens/wallpaper.jpg",
         "urlDoDisco": "../Musicas/Musica001/Recursos/Imagens/img-Disco.webp",
         "urlDaFonte": "https://www.youtube.com/watch?v=yvbfr4gZZus",
-        "urlDaMusicaTocada": "../Musicas/Musica001/Recursos/Sons/?",
-        "duracao": "1.5 min"  
+        "urlDaMusicaTocada": "../Musicas/Musica001/Recursos/Sons/musica.mp3",
+        "duracao": "01:16"  
     },
     {
         "idDaMusica": 2,
@@ -21,6 +21,18 @@
         "urlDoDisco": "../Musicas/Musica002/Recursos/Imagens/img-Disco.jpg",
         "urlDaFonte": "https://www.youtube.com/watch?v=Wi1qz61Y__I&list=RDWi1qz61Y__I&start_radio=1",
         "urlDaMusicaTocada": "../Musicas/Musica002/Recursos/Sons/musica.mp3",
-        "duracao": "2.1 min"
+        "duracao": "02:02"
+    },
+    {
+        "idDaMusica": 3,
+        "corDoElemento": "#F5C67B",
+        "urlDaLogo": "../Musicas/musica003/Recursos/Imagens/img-music.png",
+        "nomeDaMusica": "Hans Zimmer - Interstellar",
+        "urlDaMusica": "../Musicas/Musica003/ritmo.json",
+        "urlDoWallpaper": "../Musicas/Musica003/Recursos/Imagens/wallpaper.jpg",
+        "urlDoDisco": "../Musicas/Musica003/Recursos/Imagens/img-Disco.webp",
+        "urlDaFonte": "https://www.youtube.com/watch?v=OQeUvNHR0Ac&list=RDOQeUvNHR0Ac&start_radio=1",
+        "urlDaMusicaTocada": "../Musicas/Musica003/Recursos/Sons/musica.mp3",
+        "duracao": "02:07"
     }
 ]

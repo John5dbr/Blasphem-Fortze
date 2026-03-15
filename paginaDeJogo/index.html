@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Recursos/Imagens/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Blasphem Fortze</title>
+</head>
+<body>
+    <main class="jogo">
+        <section id="wallpaper" class="wallpaper">
+            <section class="principal">
+                <article id="disco" class="principal__disco">
+                    <article class="disco__roela"></article>
+                </article>
+                <section id="areaDeJogo">
+                    <section id="rotaParaAsNotas">
+                        <visual-piano>
+                            <span slot="oitavas">
+                                <uma-oitava></uma-oitava>
+                                <dois-oitava></dois-oitava>
+                            </span>
+                        </visual-piano>
+                    </section>
+                </section>
+                <article id="abaDeStatus" class="principal__abaDeStatus">
+                    <img class="abaDeStatus__miniBorda-1" src="Recursos/Icones/icone-MiniBorda.png" alt="icone-MiniBorda">
+                    <img class="abaDeStatus__miniBorda-2" src="Recursos/Icones/icone-MiniBorda.png" alt="icone-MiniBorda">
+                    <p id="abaDeStatus__titulo" class="abaDeStatus__titulo"></p>
+                    <ul id="abaDeStatus__infors" class="abaDeStatus__infors">
+                        <li class="abaDeStatus__infors__items infors__items-1"></li>
+                        <li class="abaDeStatus__infors__items infors__items-2"></li>
+                        <li class="abaDeStatus__infors__items infors__items-3"></li>
+                        <li class="abaDeStatus__infors__items infors__items-4"></li>
+                    </ul>
+                    <div id="points" class="abaDeStatus__points">
+                        <div id="textPoints" class="abaDeStatus__points__textPoints">0</div>
+                        <div id="visualPoints" class="abaDeStatus__points__visualPoints"></div>
+                    </div>
+                </article>
+            </section>
+        </section>
+        <section id="abaParaMusicas" class="areaDeMusicas naoAparecendo__AbaDeMusica" data-aparecendo="false">
+            <div id="elementoParaFazerAparecer" class="elementoParaFazerAparecer">
+                <img src="Recursos/Icones/icone-MiniBorda.png" alt="MiniBorda" class="elementoParaFazerAparecer__iconMiniBorda-Emcima">
+                <img src="Recursos/Icones/icone-MiniBorda.png" alt="MiniBorda" class="elementoParaFazerAparecer__iconMiniBorda-Embaixo">
+            </div>
+            <section class="areaDeMusicas__pesquisa">
+                <img id="iconPesquisar" src="Recursos/Icones/icone-Pesquisar.svg" alt="pesquisar" class="iconPesquisar">
+                <input type="text" name="inputPesquisar" id="inputPesquisar" class="inputPesquisar" placeholder="Pesquisar músicas">
+            </section>
+            <section id="areaDeAcoes" class="areaDeMusica__areaDeAcoes">
+                <article id="iconPauseOuContinue" class="areaDeAcoes__items" data-pause="false">
+                    <img src="Recursos/Icones/icone-Pause.svg" alt="iconPauseOuContinue">
+                </article>
+                <article id="iconRestart" class="areaDeAcoes__items">
+                    <img src="Recursos/Icones/icone-Restart.svg" alt="iconRestart">
+                </article>
+                <a href="../paginaInicial/index.html" class="areaDeAcoes__items">
+                    <img src="Recursos/Icones/icone-Home.svg" alt="iconHome">
+                </a>
+            </section>
+            <section id="abaParaOpcaoDeMusicas" class="areaDeMusica__abaParaOpcaoDeMusicas"></section>
+            <section id="areaDeAcoes-2" class="areaDeMusica__areaDeAcoes-2">
+                <article id="btnMaisOpcoes" class="areaDeAcoes-2__items" data-quant="0">
+                    <img src="Recursos/Icones/icone-Mais.svg" alt="iconMaisOpcoes">
+                </article>
+                <article id="btnAlerta" class="areaDeAcoes-2__items">
+                    <img src="Recursos/Icones/icone-Alerta.svg" alt="iconAlerta">
+                </article>
+                <article id="btnFonte" class="areaDeAcoes-2__items">
+                    <img src="Recursos/Icones/icone-Fonte.svg" alt="iconFonteDasMusicas">
+                </article>
+                <article id="btnMostrarStatus" class="areaDeAcoes-2__items">
+                    <img src="Recursos/Icones/icone-Status.svg" alt="iconMostrarStatus">
+                </article>
+            </section>
+        </section>
+    </main>
+
+    <script src="script.js" type="module"></script>
+    <script id="script-definir_ritmoParaTeclas" data-urlpararitmo="../Musicas/musica003/ritmo.json" type="module" src="../ritmoInterativo/definir_ritmoParaTeclas.js"></script>
+    <script id="script-definir_ritmoParaUsuario" data-valido="false" type="module" src="../ritmoInterativo/definir_ritmoParaUsuario.js"></script>
+</body>
+</html>

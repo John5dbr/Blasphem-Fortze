@@ -1,0 +1,619 @@
+@charset "UTF-8";
+
+/* ================== Configurações Gerais ================== */
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('Recursos/Fontes/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'LobsterTwo';
+    src: url('Recursos/Fontes/LobsterTwo/LobsterTwo-Regular.ttf');
+}
+@font-face {
+    font-family: 'Cormorant';
+    src: url('Recursos/Fontes/Cormorant/CormorantGaramond-VariableFont_wght.ttf');
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*
+::-webkit-scrollbar {
+    width: 5px; 
+}
+::-webkit-scrollbar-track {
+    background: var(--cor-Preta);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(73, 73, 73);
+    border-radius: 10px;
+    border: none;
+}
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --cor-FundoPadrao: #101213;
+    --cor-Preta: black;
+    --cor-PretoFraco: #111111;
+    --cor-Branca: rgb(255,255,255,0.5);
+    --cor-Logo: #A99D83;
+
+    --font-Primaria: 'Cormorant';
+    --font-Secundaria: 'Montserrat';
+    --font-Terciaria: 'LobsterTwo';
+}
+
+body {
+    height: 200vh;
+}
+
+.hdrPorAba {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+
+    border-top: 2px solid var(--cor-Branca);
+    opacity: 0.75;
+    color: var(--cor-Branca);
+    text-align: justify;
+
+    margin: 0px 75px 50px 75px;
+    padding: 20px 0px 0px 0px;
+}
+.hdrPorAba__h1 {
+    font: normal bold 4em var(--font-Primaria);
+}
+.hdrPorAba__p {
+    font: normal normal 1.25em var(--font-Primaria);
+}
+
+
+/* ============ Configuração da aba de navegação ============ */
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: -100px;
+    z-index: 5;
+
+    width: 100%;
+    
+    transition: all 0.5s linear 0s;
+    border-top: 2px solid var(--cor-Logo);
+}
+.nav-aparecendo {
+    top: 0px;
+}
+
+.nav__links {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 75%;
+
+    padding: 5px 10px;
+
+    backdrop-filter: blur(5px);
+    border-radius: 0px 0px 5px 5px;
+    border: 2px solid var(--cor-Logo);
+    border-top: none;
+    transform: translateY(-2px);
+    text-align: center;
+}
+.nav__links__items {
+    font: normal normal 1em var(--font-Secundaria);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.377);
+    color: var(--cor-Logo);
+    text-decoration: none;
+}
+.nav__links__items:hover {
+    font-weight: bold;
+}
+
+.nav__links > p {
+    width: 100px;
+}
+#jogar {
+    position: fixed;
+
+    padding: 30px 20px 15px 20px;
+
+    color: var(--cor-Preta);
+    background: var(--cor-Logo);
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* ======= Configuração de zona para as teclas + piano ======= */
+
+#areaDeJogo {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    transform: perspective(600px) rotateX(10deg) scale(85%);
+
+    width: 80%;
+    height: 75vh;
+}
+#rotaParaAsNotas {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-end;
+
+    overflow: hidden;
+    position: relative;
+
+    width: 828px;
+    height: 92.5%;
+}
+
+/* ============= Configurações do BANNER Principal ============= */
+
+.hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font: normal normal 1em var(--font-Secundaria);
+    border-top: 2px solid white;
+    opacity: 0.75;
+    color: white;
+
+    width: auto;
+    padding: 10px 0px 0px 0px;
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.secBannerPrincipal {
+    font: normal bold 4em var(--font-Primaria);
+    background: url('Recursos/Imagens/fundo-bannerPrincipal.jpg') no-repeat center center / cover;
+    background-attachment: fixed;
+    box-shadow: inset 0px 0px 25px var(--cor-FundoPadrao);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+.secBannerPrincipal__h1, .secBannerPrincipal__p {
+    color: white;
+    opacity: 0.75;
+}
+.divisor {
+    position: absolute;
+    bottom: 0px;
+
+    width: 100%;
+    height: 25px;
+    
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--cor-FundoPadrao) 75%);
+}
+
+/* ============= Configurações da aba de Introdução ============= */
+
+.secIntroducao {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+
+    padding: 100px 0px 100px 75px;
+
+    background: var(--cor-FundoPadrao);
+}
+.secIntroducao__h1 {
+    font: normal bold 5em var(--font-Primaria);
+    color: var(--cor-Branca);
+}
+.secIntroducao__paragrafos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 50px;
+}
+.secIntroducao__paragrafos__p {
+    font: normal normal 1.25em var(--font-Primaria);
+    color: var(--cor-Branca);
+    text-align: justify;
+}
+.secIntroducao__paragrafos__p-1 {
+    width: 400px;
+}
+.secIntroducao__paragrafos__p-2 {
+    width: 300px;
+}
+
+/* ===== Configurações da aba Explicação da Interface de Jogo ===== */
+
+.secFuncaoDeCadaBotao {
+    background: var(--cor-FundoPadrao);
+}
+
+.secFuncaoDeCadaBotao__btn {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5vw;
+
+    margin: 0px 75px;
+    padding: 0px 0px 75px 0px;
+}
+.secFuncaoDeCadaBotao__btn__items {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 10px;
+
+    transition: all 1.5s ease-out 0s;
+    border: 1px solid var(--cor-Branca);
+    color: var(--cor-Branca);
+
+    height: 275px;
+    width: 140px;
+}
+.secFuncaoDeCadaBotao__btn__items:hover {
+    transform: perspective(600px) rotateY(180deg);
+}
+.secFuncaoDeCadaBotao__btn__items > h1 {
+    font: normal bold 1.3em var(--font-Primaria);
+}
+.secFuncaoDeCadaBotao__btn__items > img {
+    align-self: center;
+    opacity: 0.5;
+}
+.secFuncaoDeCadaBotao__btn__items > p {
+    font: normal normal 1em var(--font-Primaria);
+}
+
+.secFuncaoDeCadaBotao__btn__pause {
+    margin: 0px 0px 0px 0px;
+}
+.secFuncaoDeCadaBotao__btn__restart {
+    margin: 50px 0px 0px 0px;
+}
+.secFuncaoDeCadaBotao__btn__home {
+    margin: 100px 0px 0px 0px;
+}
+.secFuncaoDeCadaBotao__btn__mais {
+    margin: 150px 0px 0px 0px;
+}
+.secFuncaoDeCadaBotao__btn__alerta {
+    margin: 200px 0px 0px 0px;
+}
+.secFuncaoDeCadaBotao__btn__fonte {
+    margin: 250px 0px 0px 0px;
+}
+.secFuncaoDeCadaBotao__btn__status {
+    margin: 300px 0px 0px 0px;
+}
+.secFuncaoDeCadaBotao__btn__play {
+    margin: 350px 0px 0px 0px;
+}
+    
+/* ===== Configurações da aba Teste o Piano ===== */
+
+.secTestePiano {
+    background: var(--cor-FundoPadrao);
+
+    padding: 0px 0px 50px 0px;  
+}
+
+.wallpaper__conteiner {
+    overflow: hidden;
+    border: 2px solid var(--cor-Branca);
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.25);
+
+    margin: 0px 75px 0px 75px;
+}
+.secTestePiano__wallpaper {
+    background: url('Recursos/Imagens/fundo-WallpaperPiano.jpg') no-repeat center center / cover;
+}
+.secTestePiano__wallpaper__teste {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    backdrop-filter: blur(5px);
+}
+
+/* ========== Configurações da aba de Seleção de Música =========== */
+
+.mnSelecaoDeMusica {
+    background: var(--cor-FundoPadrao);
+
+    position: relative;
+}
+
+.mnSelecaoDeMusica__abaOpcaoDeMusicas {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 50px 0px;
+}
+.mnSelecaoDeMusica__abaOpcaoDeMusicas__musica {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+    padding: 20px;
+
+    width: 350px;
+    height: 500px;
+
+    background: white;
+    box-shadow: 0px 0px 25px black;
+
+    transition: all 0.5s ease-in-out;
+}
+
+.musica-1 {
+    transform: scale(100%) translateX(35%) rotate(12deg);
+}
+.musica-1:hover {
+    transform: scale(105%) translateX(calc(35% + 62.5px)) rotate(0deg);
+    z-index: 1;
+}
+.musica-1:hover > .musica__img > .musica__img__disco > .principal__disco {
+    animation: rodaDisco 10s infinite 0s linear;
+}
+
+.musica-2 {
+    transform: scale(100%) translateX(-20%) rotate(-6deg);
+}
+.musica-2:hover {
+    transform: scale(105%) translateX(calc(-20% + 62.5px)) rotate(0deg);
+    z-index: 2;
+}
+.musica-2:hover > .musica__img > .musica__img__disco > .principal__disco {
+    animation: rodaDisco 10s infinite 0s linear;
+}
+
+.musica-3 {
+    transform: scale(100%) translateX(-40%) rotate(17deg);
+}
+.musica-3:hover {
+    transform: scale(105%) translateX(calc(-40% - 62.5px)) rotate(0deg);
+    z-index: 2;
+}
+.musica-3:hover > .musica__img > .musica__img__disco > .principal__disco {
+    animation: rodaDisco 10s infinite 0s linear;
+}
+
+.musica__img {
+    background: url('Recursos/Imagens/fundo-BannerPrincipal.svg') no-repeat center center / cover;
+    
+    height: 60%;
+    width: 100%;
+
+    overflow: hidden;
+}
+.musica__img__disco {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    backdrop-filter: blur(5px);
+}
+.principal__disco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: -10vw;
+    left: calc(50% - 10vw);
+
+    width: 20vw;
+    height: 20vw;
+
+    background: url('Recursos/Imagens/fundo-bannerPrincipal.jpg') no-repeat center center / cover;
+    border-radius: 100%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+@keyframes rodaDisco {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.disco__roela {
+    width: 25%;
+    height: 25%;
+
+    background: var(--cor-Preta);
+    border-radius: 100%;
+}
+
+.musica__txt {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    height: 50%;
+    width: 100%;
+
+    text-align: center;
+}
+.musica__txt__nomeDaMusica {
+    font: normal bold 1.5em var(--font-Terciaria);
+}
+.musica__txt__dados {
+    font: normal bold 1em var(--font-Secundaria);
+}
+
+/* ========== Configurações da aba Finalização (footer) =========== */
+
+.ftrFinalizacao {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-self: center;
+    align-items: center;
+
+    background: var(--cor-FundoPadrao);
+    text-align: center;
+    overflow: hidden;
+
+    width: 100%;
+
+    padding: 75px 0px 25px 0px;
+}
+
+.ftrFinalizacao__h1 {
+    font: normal bold 5em var(--font-Primaria);
+    color: var(--cor-Branca);
+}
+.ftrFinalizacao__p {
+    font: normal normal 2em var(--font-Primaria);
+    color: var(--cor-Branca);
+}
+
+.ftrFinalizacao__artIcones {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+
+    margin: 50px 0px 25px 0px;
+}
+.ftrFinalizacao__artIcones__links {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+
+    font: normal normal 1.25em var(--font-Primaria);
+    color: var(--cor-Branca);
+    text-decoration: none;
+}
+.ftrFinalizacao__artIcones__links > img {
+    width: 20px;
+    opacity: 0.5;
+}
+
+.elementoParaInformarCopia {
+    font: normal normal 1.25em var(--font-Primaria);
+    color: var(--cor-Branca);
+    border: 2px solid var(--cor-Branca);
+    
+    transform: perspective(600px) translateY(250%) rotateX(90deg);
+
+    padding: 10px;
+}
+.elementoParaInformarCopia-aparecendo {
+    animation: informarCopia 5s ease-in 0s 1 forwards normal;
+}
+@keyframes informarCopia {
+    0% {
+        transform: perspective(600px) translateY(250%) rotateX(90deg);
+    } 25% { 
+        transform: perspective(600px) translateY(0%) rotateX(0deg); 
+    } 50% {
+        transform: perspective(600px) translateY(0%) rotateX(0deg); 
+    } 75% {
+        transform: perspective(600px) translateY(0%) rotateX(0deg); 
+    } 100% {
+        transform: perspective(600px) translateY(250%) rotateX(90deg);
+    }
+}
+
+/* ======================== Responsividade ======================== */
+
+@media (max-width: 1300px) {
+    .hdrPorAba {
+        margin: 0px 50px 50px 50px;
+    }
+    .hdrPorAba__h1 {
+        font: normal bold 3em var(--font-Primaria);
+    }
+    .hdrPorAba__p {
+        font: normal normal 1.25em var(--font-Primaria);
+    }
+
+    .secBannerPrincipal {
+        font: normal bold 2em var(--font-Primaria);
+    } 
+
+    .secIntroducao {
+        padding: 100px 0px 100px 50px;
+    }
+
+    .secFuncaoDeCadaBotao__btn {
+        gap: 25px;
+    }
+    .secFuncaoDeCadaBotao__btn__items { 
+        margin: 0px 0px 0px 0px;
+    }
+
+    .wallpaper__conteiner {
+        margin: 0px 50px 50px 50px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .nav__links {
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0px 125px;
+
+        width: 450px;
+        height: 50px;
+    }
+    .nav__links__items:hover {
+        font-weight: bold;
+    }
+
+    #jogar {
+        position: fixed;
+        top: 0px;
+
+        padding: 25px 20px 25px 20px;
+
+        color: var(--cor-Preta);
+        background: var(--cor-Logo);
+        border-radius: 0px 0px 5px 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .musica__txt__nomeDaMusica {
+        font: normal bold 1.2em var(--font-Terciaria);
+    }
+    .musica__txt__dados {
+        font: normal bold 0.8em var(--font-Secundaria);
+    }
+}

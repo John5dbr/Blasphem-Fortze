@@ -1,4 +1,4 @@
-![logoDoJogo](./testeControlados/Recursos/Imagens/logoParaMarkdown.png)
+![logoDoJogo](./testeControlados/Recursos/Imagens/LogoParaMarkdown.png)
 # ~ Blasphem Fortze ~
 ---
 
@@ -8,8 +8,6 @@
 2. [Estrutura dos diretórios](#estrutura-de-diretórios)
 3. [Explicação dos Scripts](#explicação-dos-scripts)
 <!-- 4. [Conclusão]() -->
-
-<br>
 
 ---
 
@@ -25,8 +23,6 @@ Conta com duas páginas:
 
 - A *página inicial* apresenta informações e instruções de como usar o jogo. 
 - A *página de Jogo* apresenta de fato e interface para jogar o jogo.
-
-<br>
 
 ---
 
@@ -70,7 +66,6 @@ BlasphemForze/
 └── README.md
 ```
 
-<br>
 
 ---
 
@@ -92,8 +87,6 @@ Os scripts foram divididos conforme diferentes deveres, para facilitar organiza�
 
 <!-- - **script.js (paginaInicial)** <br> 
 ... -->
-
-<br>
 
 ---
 
