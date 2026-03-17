@@ -1,4 +1,4 @@
-![logoDoJogo](./testeControlados/Recursos/Imagens/LogoParaMarkdown.png)
+![logoDoJogo](./paginaDeJogo/Recursos/Imagens/logoParaMarkdown.png)
 # ~ Blasphem Fortze ~
 ---
 

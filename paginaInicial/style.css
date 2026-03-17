@@ -168,7 +168,7 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    font: normal normal 1em var(--font-Secundaria);
+    font: normal normal 1.25em var(--font-Secundaria);
     border-top: 2px solid white;
     opacity: 0.75;
     color: white;
@@ -183,7 +183,7 @@ body {
 }
 
 .secBannerPrincipal {
-    font: normal bold 4em var(--font-Primaria);
+    font: normal bold 5vw var(--font-Primaria);
     background: url('Recursos/Imagens/fundo-bannerPrincipal.jpg') no-repeat center center / cover;
     background-attachment: fixed;
     box-shadow: inset 0px 0px 25px var(--cor-FundoPadrao);
@@ -254,7 +254,7 @@ body {
 .secFuncaoDeCadaBotao__btn {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: flex-start;
     gap: 0.5vw;
 
@@ -358,7 +358,7 @@ body {
 
     overflow: hidden;
 
-    padding: 50px 0px;
+    padding: 50px 0px 100px 0px;
 }
 .mnSelecaoDeMusica__abaOpcaoDeMusicas__musica {
     display: flex;
@@ -477,6 +477,41 @@ body {
     font: normal bold 1em var(--font-Secundaria);
 }
 
+/* === Configurações da aba de Explicação das mecânicas do jogo == */
+
+.secComoJogar {
+    background: var(--cor-FundoPadrao);
+}
+
+.secComoJogar__cardsComoJogar {
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+
+    margin: 0px 75px 0px 75px;
+}
+.secComJogar__cardsComoJogar__card {
+    font: normal normal 1.25em var(--font-Primaria);
+    color: var(--cor-Branca);
+    border: 1px solid var(--cor-Branca);
+    transition: all 0.25s linear 0s;
+}
+.secComJogar__cardsComoJogar__card:hover {
+    transform: scale(102.5%);
+    box-shadow: 0px 0px 10px black;
+}
+.secComJogar__cardsComoJogar__card > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+}
+
 /* ========== Configurações da aba Finalização (footer) =========== */
 
 .ftrFinalizacao {
@@ -563,10 +598,9 @@ body {
         font: normal normal 1.25em var(--font-Primaria);
     }
 
-    .secBannerPrincipal {
-        font: normal bold 2em var(--font-Primaria);
-    } 
-
+    .hdr {
+        font: normal normal 1em var(--font-Secundaria);
+    }
     .secIntroducao {
         padding: 100px 0px 100px 50px;
     }
@@ -580,6 +614,10 @@ body {
 
     .wallpaper__conteiner {
         margin: 0px 50px 50px 50px;
+    }
+
+    .secComoJogar__cardsComoJogar { 
+        margin: 0px 50px 0px 50px;
     }
 }
 

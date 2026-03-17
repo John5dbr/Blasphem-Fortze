@@ -394,7 +394,7 @@ function inicializarFuncoesBasicas() {
                 };
 
                 let maxPont = quantDeTeclas * 2;
-                ritmo.forEach(el => { if (el.pressaoDeClique === 4) { maxPont += 5 }});
+                ritmo.forEach(el => { if (el.pressaoDeClique === 4) { maxPont += 2 }});
 
                 return [quantDeTeclas, dific, maxPont];
             };

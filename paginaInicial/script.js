@@ -88,7 +88,7 @@ async function inicializarFuncoesBasicas() {
         };
 
         let maxPont = quantDeTeclas * 2;
-        resposta.forEach(el => { if (el.pressaoDeClique === 4) { maxPont += 5 }});
+        resposta.forEach(el => { if (el.pressaoDeClique === 4) { maxPont += 2 }});
 
         return [quantDeTeclas, dific, maxPont];
     };
