@@ -236,9 +236,9 @@ function inicializarFuncoesBasicas() {
 
     // Função para funcionamento do botão de Restarte do jogo
     let linkNaPaginaJogo = document.querySelector('#iconHome');
-    linkNaPaginaJogo.addEventListener('click', restartJogo());
-    let btnRestart = document.getElementById("iconHome");
-    btnRestart.addEventListener('click', restartJogo());
+    linkNaPaginaJogo.addEventListener('click', restartJogo);
+    let btnRestart = document.getElementById("iconRestart");
+    btnRestart.addEventListener('click', restartJogo);
     function restartJogo() {
         clearTimeout(timeoutDoPlay);
         clearTimeout(timeoutDoAlterarMusica);
