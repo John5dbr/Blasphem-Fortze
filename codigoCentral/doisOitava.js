@@ -82,18 +82,18 @@ export class doisOitava extends HTMLElement {
 
     connectedCallback() {
         let notas = {
-            do: new Audio('../codigoCentral/Recursos/Audio/doisOitava/C2.mp3'),
-            reB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Db2.mp3'),
-            re: new Audio('../codigoCentral/Recursos/Audio/doisOitava/D2.mp3'),
-            miB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Eb2.mp3'),
-            mi: new Audio('../codigoCentral/Recursos/Audio/doisOitava/E2.mp3'),
-            fa: new Audio('../codigoCentral/Recursos/Audio/doisOitava/F2.mp3'),
-            solB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Gb2.mp3'),
-            sol: new Audio('../codigoCentral/Recursos/Audio/doisOitava/G2.mp3'),
-            laB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Ab2.mp3'),
-            la: new Audio('../codigoCentral/Recursos/Audio/doisOitava/A2.mp3'),
-            siB: new Audio('../codigoCentral/Recursos/Audio/doisOitava/Bb2.mp3'),
-            si: new Audio('../codigoCentral/Recursos/Audio/doisOitava/B2.mp3')
+            do: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/C2.mp3'),
+            reB: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/Db2.mp3'),
+            re: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/D2.mp3'),
+            miB: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/Eb2.mp3'),
+            mi: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/E2.mp3'),
+            fa: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/F2.mp3'),
+            solB: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/Gb2.mp3'),
+            sol: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/G2.mp3'),
+            laB: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/Ab2.mp3'),
+            la: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/A2.mp3'),
+            siB: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/Bb2.mp3'),
+            si: new Audio('../codigoCentral/Recursos/Audio/DoisOitava/B2.mp3')
         };
 
         // Seleção das teclas presente nesssa oitava.
