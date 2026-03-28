@@ -235,8 +235,11 @@ function inicializarFuncoesBasicas() {
     });
 
     // Função para funcionamento do botão de Restarte do jogo
-    let btnRestart = document.getElementById("iconRestart");
-    btnRestart.addEventListener('click', () => {
+    let linkNaPaginaJogo = document.querySelector('#iconHome');
+    linkNaPaginaJogo.addEventListener('click', restartJogo());
+    let btnRestart = document.getElementById("iconHome");
+    btnRestart.addEventListener('click', restartJogo());
+    function restartJogo() {
         clearTimeout(timeoutDoPlay);
         clearTimeout(timeoutDoAlterarMusica);
         clearTimeout(timeoutDaMusica);
@@ -261,7 +264,7 @@ function inicializarFuncoesBasicas() {
         txtMostrarPont.innerText = `0`;
 
         jogoOcorrendo = false;
-    });
+    };
 
     // Função que requisita as músicas do arquivo ritmo.json da música selecionada 
     async function requisitarMusicas() {
