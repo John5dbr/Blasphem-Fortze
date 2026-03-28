@@ -21,19 +21,19 @@
     box-sizing: border-box;
 }
 
-/*
+
 ::-webkit-scrollbar {
-    width: 5px; 
+    width: 8px; 
 }
 ::-webkit-scrollbar-track {
-    background: var(--cor-Preta);
+    background: var(--cor-FundoPadrao);
 }
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(73, 73, 73);
+    background-color: var(--cor-Logo);
     border-radius: 10px;
     border: none;
 }
-*/
+
 
 html {
     scroll-behavior: smooth;
@@ -123,18 +123,21 @@ body {
 .nav__links__items:hover {
     font-weight: bold;
 }
-
-.nav__links > p {
-    width: 100px;
-}
 #jogar {
     position: fixed;
-
+    left: calc(50% - 50.5px);
+    z-index: 5;
+    
     padding: 30px 20px 15px 20px;
 
     color: var(--cor-Preta);
     background: var(--cor-Logo);
     border-radius: 0px 0px 5px 5px;
+
+    transition: padding 2.5s ease-in 0s;
+}
+.nav__links > p {
+    width: 100px;
 }
 
 /* ======= Configuração de zona para as teclas + piano ======= */
@@ -267,6 +270,8 @@ body {
     justify-content: space-between;
     align-items: flex-start;
 
+    position: relative;
+
     padding: 10px;
 
     transition: all 1.5s ease-out 0s;
@@ -278,17 +283,37 @@ body {
 }
 .secFuncaoDeCadaBotao__btn__items:hover {
     transform: perspective(600px) rotateY(180deg);
+    box-shadow: inset 0px 0px 15px black;
+}
+.secFuncaoDeCadaBotao__btn__items:hover > .secFuncaoDeCadaBotao__btn__items__img1 h1 p {
+    opacity: 0;
 }
 .secFuncaoDeCadaBotao__btn__items > h1 {
     font: normal bold 1.3em var(--font-Primaria);
 }
-.secFuncaoDeCadaBotao__btn__items > img {
+.secFuncaoDeCadaBotao__btn__items > .secFuncaoDeCadaBotao__btn__items__img1 {
     align-self: center;
     opacity: 0.5;
 }
 .secFuncaoDeCadaBotao__btn__items > p {
     font: normal normal 1em var(--font-Primaria);
 }
+
+.secFuncaoDeCadaBotao__btn__items__img2 {
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    transition: all .75s ease-out .5s;
+
+    opacity: 0;
+}
+.secFuncaoDeCadaBotao__btn__items__img2:hover {
+    opacity: 1;
+}   
 
 .secFuncaoDeCadaBotao__btn__pause {
     margin: 0px 0px 0px 0px;
@@ -583,6 +608,20 @@ body {
     } 100% {
         transform: perspective(600px) translateY(250%) rotateX(90deg);
     }
+}
+
+/* ======================== Transições entre páginas ======================== */
+
+.elementoDeTransicao {
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+    background: #A99D83;
+
+    transition: all 1s ease-in 0s;
 }
 
 /* ======================== Responsividade ======================== */

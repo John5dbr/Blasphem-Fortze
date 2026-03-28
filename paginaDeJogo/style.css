@@ -31,9 +31,11 @@
 }
 
 :root {
+    --cor-FundoPadrao: #101213;
     --cor-Preta: black;
     --cor-PretoFraco: #111111;
     --cor-Branca: rgb(255,255,255,0.5);
+    --cor-Logo: #A99D83;
 
     --font-Secundaria: 'Montserrat';
     --font-Terciaria: 'LobsterTwo';
@@ -204,6 +206,19 @@ body {
 .abaDeStatus__points__visualPoints {
     height: 10px;
     border-radius: 5px;
+}
+
+/* =================== Transições entre páginas ================== */
+.elementoDeTransicao {
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+    background: #A99D83;
+
+    transition: all 1s ease-in 0s;
 }
 
 /* ============== Configurações da aba para MUSICAS ============== */

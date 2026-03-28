@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Recursos/Imagens/Favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Blasphem Fortze</title>
 </head>
-<body>
+<body id="Jogo" class="pagina">
+    <article id="elementoDeTransicao" class="elementoDeTransicao"></article>
+
     <main class="jogo">
         <section id="wallpaper" class="wallpaper">
             <section class="principal">
@@ -57,7 +59,7 @@
                 <article id="iconRestart" class="areaDeAcoes__items">
                     <img src="Recursos/Icones/icone-Restart.svg" alt="iconRestart">
                 </article>
-                <a href="../paginaInicial/index.html" class="areaDeAcoes__items">
+                <a id="iconHome" href="../paginaInicial/index.html" class="areaDeAcoes__items">
                     <img src="Recursos/Icones/icone-Home.svg" alt="iconHome">
                 </a>
             </section>
@@ -80,7 +82,11 @@
     </main>
 
     <script src="script.js" type="module"></script>
+    <script src="../paginaInicial/script.js" type="module"></script>
+
     <script id="script-definir_ritmoParaTeclas" data-urlpararitmo="../Musicas/musica003/ritmo.json" type="module" src="../ritmoInterativo/definir_ritmoParaTeclas.js"></script>
     <script id="script-definir_ritmoParaUsuario" data-valido="false" type="module" src="../ritmoInterativo/definir_ritmoParaUsuario.js"></script>
+
+    <script src="../codigoCentral/transicaoEntrePaginas.js"></script>
 </body>
 </html>

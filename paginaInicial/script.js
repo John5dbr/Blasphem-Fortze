@@ -153,20 +153,4 @@ async function inicializarFuncoesBasicas() {
             nav.classList.remove('nav-aparecendo');
         }
     });
-
-    let btnJogar = document.getElementById('jogar');
-    btnJogar.addEventListener('click', enviandoParaPaginaDeJogo);
-    function enviandoParaPaginaDeJogo(e) {
-        e.preventDefault();
-
-        let dadosSalvos = localStorage.getItem('dadosDaMusicaPadrao'); 
-
-        if (dadosSalvos === null || dadosSalvos === '') {
-            document.getElementById('mnSelecaoDeMusica').scrollIntoView();
-        } else {
-            window.location.replace('../paginaDeJogo/index.html');
-        };
-    };
 };
-
-

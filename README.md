@@ -1,4 +1,4 @@
-![logoDoJogo](./paginaDeJogo/Recursos/Imagens/logoParaMarkdown.png)
+![logoDoJogo](./paginaDeJogo/Recursos/Imagens/Favicon.png)
 # ~ Blasphem Fortze ~
 ---
 
@@ -7,7 +7,8 @@
 1. [Introdução ao Projeto](#introdução-ao-projeto)
 2. [Estrutura dos diretórios](#estrutura-de-diretórios)
 3. [Explicação dos Scripts](#explicação-dos-scripts)
-<!-- 4. [Conclusão]() -->
+4. [Conclusão](#conclusão)
+5. [Contribua com o Projeto](#contribua-com-o-projeto)
 
 ---
 
@@ -35,6 +36,7 @@ BlasphemForze/
 |   ├── Recursos/
 |   ├── umOitava.js
 |   ├── doisOitava.js
+|   ├── transicaoEntrePaginas.js
 |   ├── opcaoDeMusica.js
 |   └── visualDoPiano.js
 |
@@ -85,9 +87,98 @@ Os scripts foram divididos conforme diferentes deveres, para facilitar organiza�
 
 - **script.js (paginaDeJogo)** <br> Responsável por toda a interatividade da interface: carrega e exibe as músicas disponíveis, gerencia a seleção e troca de músicas, e coordena os controles de play, pause e restart, sincronizando o áudio com as animações do jogo.
 
-<!-- - **script.js (paginaInicial)** <br> 
-... -->
+- **script.js (paginaInicial)** <br> 
+Realiza e gêrencia dos recursos e necessidades básicas, além de permitir interatividade básicas da página Inicial.
+
+- **transicaoEntrePaginas.js** <br> 
+Script comum usado pelas duas páginas para permitir a animação entre as duas páginas.
 
 ---
 
-<!-- ### Conclusão -->
+### Conclusão
+O Blasphem Fortze é um projeto desenvolvido inteiramente com tecnologias nativas da web, sem depender de bibliotecas ou frameworks externos. <br> O objetivo principal sempre foi explorar na prática os recursos que o próprio JavaScript e o navegador oferecem — desde a manipulação do DOM até a comunicação entre componentes via eventos customizados. <br>
+O resultado é um jogo funcional, organizado e expansível, onde cada parte do código tem um dever claro e bem delimitado. Há espaço para crescer, especialmente no repertório de músicas disponíveis, e é exatamente aí que você pode contribuir.
+
+---
+
+### Contribua com o Projeto
+A forma mais direta de contribuir com o Blasphem Fortze é adicionando novas músicas ao repertório. Para isso, siga os passos abaixo:
+
+1. **Crie a pasta da música:**
+
+*Dentro do diretório Musicas/, crie uma nova pasta seguindo o padrão MusicaXXX/, onde XXX é o número sequencial da música (ex: Musica004/). Dentro dela, a estrutura deve ser:* 
+
+```plaintext
+Musica004/
+├── Recursos/
+│   ├── Imagens/
+│   │   ├── img-music.png
+│   │   ├── img-Disco.webp
+│   │   └── wallpaper.jpg
+│   └── Sons/
+│       └── musica.mp3
+└── ritmo.json
+```
+2. **Crie o arquivo ritmo.json:**
+
+*O ritmo.json é o coração da música no jogo — ele define quais notas tocar, quando aparecem e por quanto tempo ficam válidas para o jogador pressionar. Cada nota é um objeto dentro de um array:*
+
+```plaintext
+[
+    {
+        "tecla": "001",
+        "nota": "C1",
+        "tempoParaAparecer": 1,
+        "pressaoDeClique": 2
+    }
+]
+```
+Significado de cada campo: 
+
+* tecla — identificador numérico da tecla (formato "001" a "024").
+* nota — nome da nota musical correspondente. As notas disponíveis vão de C1 a B2, cobrindo as duas oitavas do piano.
+* tempoParaAparecer — tempo em segundos a partir do início do jogo em que a nota deve aparecer na tela.
+* pressaoDeClique — janela de tempo em segundos durante a qual o jogador pode pressionar a tecla e ser considerado correto.
+
+3. **Registre a música no registrosDeMusicas.json** 
+
+*Adicione um novo objeto ao array no arquivo Musicas/registrosDeMusicas.json:*
+
+```plaintext
+{
+    "idDaMusica": 4,
+    "corDoElemento": "#HEXCOR",
+    "urlDaLogo": "../Musicas/Musica004/Recursos/Imagens/img-music.png",
+    "nomeDaMusica": "Artista - Nome da Música",
+    "urlDaMusica": "../Musicas/Musica004/ritmo.json",
+    "urlDoWallpaper": "../Musicas/Musica004/Recursos/Imagens/wallpaper.jpg",
+    "urlDoDisco": "../Musicas/Musica004/Recursos/Imagens/img-Disco.webp",
+    "urlDaFonte": "https://link-para-a-fonte-da-musica.com",
+    "urlDaMusicaTocada": "../Musicas/Musica004/Recursos/Sons/musica.mp3",
+    "duracao": "MM:SS"
+}
+```
+
+Significado de cada campo: 
+
+* idDaMusica — número sequencial único da música.
+* corDoElemento — cor em hexadecimal usada para personalizar o card e a barra de pontuação.
+* urlDaLogo — imagem exibida no card da música na lista lateral.
+* nomeDaMusica — nome exibido na interface, no formato "Artista - Nome".
+* urlDaMusica — caminho para o ritmo.json da música.
+* urlDoWallpaper — imagem de fundo exibida durante o jogo.
+* urlDoDisco — imagem do disco giratório exibido durante o jogo.
+* urlDaFonte — link para a fonte original da música (YouTube, Spotify etc.), exibido no botão de créditos.
+* urlDaMusicaTocada — caminho para o arquivo de áudio .mp3.
+* duracao — duração da música no formato "MM:SS", exibida na aba de status.
+
+4. **Regras gerais** 
+
+* Respeite os direitos autorais: utilize apenas músicas com licença livre ou que você tenha permissão para usar, e sempre preencha o campo urlDaFonte apontando para a fonte original.
+* Mantenha o padrão de nomenclatura das pastas (MusicaXXX/) e dos arquivos (img-music, img-Disco, wallpaper, musica.mp3) para que o jogo os encontre corretamente.
+* O idDaMusica deve ser único e sequencial — não reutilize IDs de músicas removidas.
+* O campo tecla no ritmo.json deve sempre referenciar um valor entre "001" e "024", correspondente às 24 teclas disponíveis no piano.
+
+5. **Como enviar sua contribuição**
+
+*Após realizar todas as alterações descritas acima, basta abrir um Pull Request no repositório. Cada contribuição será analisada antes do merge, para garantir que o padrão do projeto seja mantido.*

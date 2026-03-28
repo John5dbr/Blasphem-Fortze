@@ -7,216 +7,229 @@
     <link rel="stylesheet" href="style.css">
     <title>Blasphem Fortze</title>
 </head>
-<body>
-    <nav id="nav" class="nav">
-        <section class="nav__links">
-            <a href="#secIntroducao" class="nav__links__items">
-                Sobre o Projeto
-            </a>
-            <a href="#secFuncaoDeCadaBotao" class="nav__links__items">
-                Interface do Jogo
-            </a>
-            <p></p>
-            <a id="jogar" href="../paginaDeJogo/index.html" class="nav__links__items">
-                JOGUE!
-            </a>
-            <a href="#secTestePiano" class="nav__links__items">
-                Teste o piano
-            </a>
-            <a href="#mnSelecaoDeMusica" class="nav__links__items">
-                Seleção de música
-            </a>
-            <!--
-            <a href="#ftrFinalizacao" class="nav__links__items">
-                Contato
-            </a>
-            -->
+<body id="Inicial" class="pagina">
+    <article id="elementoDeTransicao" class="elementoDeTransicao"></article>
+
+    <main>
+        <nav id="nav" class="nav">
+            <section class="nav__links">
+                <a href="#secIntroducao" class="nav__links__items">
+                    Sobre o Projeto
+                </a>
+                <a href="#secFuncaoDeCadaBotao" class="nav__links__items">
+                    Interface do Jogo
+                </a>
+                <p></p>
+                <a id="jogar" href="../paginaDeJogo/index.html" class="nav__links__items linkNaPaginaInicial">
+                    JOGUE!
+                </a>
+                <a href="#secTestePiano" class="nav__links__items">
+                    Teste o piano
+                </a>
+                <a href="#mnSelecaoDeMusica" class="nav__links__items">
+                    Seleção de música
+                </a>
+            </section>
+        </nav>
+        <header class="hdr">
+            <p class="hdr__p">Desenvolvido por Pedro de Souza Santos</p>
+            <p class="hdr__p">© 2026</p>
+        </header>
+        <section class="secBannerPrincipal">
+            <h1 class="secBannerPrincipal__h1">Blasphem Fortze</h1>
+            <p class="secBannerPrincipal__p">Piano. Ritmo. Relax.</p>
+            <div class="divisor"></div>
         </section>
-    </nav>
-    <header class="hdr">
-        <p class="hdr__p">Desenvolvido por Pedro de Souza Santos</p>
-        <p class="hdr__p">© 2026</p>
-    </header>
-    <section class="secBannerPrincipal">
-        <h1 class="secBannerPrincipal__h1">Blasphem Fortze</h1>
-        <p class="secBannerPrincipal__p">Piano. Ritmo. Relax.</p>
-        <div class="divisor"></div>
-    </section>
-    <section id="secIntroducao" class="secIntroducao">
-        <h1 class="secIntroducao__h1">Sobre o Projeto</h1>
-        <article class="secIntroducao__paragrafos">
-            <p class="secIntroducao__paragrafos__p secIntroducao__paragrafos__p-1"><strong>Blasphem Fortze</strong> é um jogo de piano interativo rodando direto no navegador, sem precisar instalar nada. A ideia é simples: escolha uma música, acompanhe as teclas que aparecem na tela e pressione as teclas certas no tempo certo para pontuar. <br> O projeto foi construído inteiramente com HTML, CSS e JavaScript puro, sem frameworks.</p>
-            <p class="secIntroducao__paragrafos__p secIntroducao__paragrafos__p-2">Toda a lógica do jogo, desde a seleção de músicas até o sistema de pontuação em tempo real, é coordenada por scripts que se comunicam via eventos customizados, mantendo o código organizado e desacoplado.</p>
-        </article>
-    </section>
-    <section id="secFuncaoDeCadaBotao" class="secFuncaoDeCadaBotao">
-        <article class="hdrPorAba">
-            <h1 class="hdrPorAba__h1">Interface do Jogo</h1>
-            <p class="hdrPorAba__p">Para acessar os botões da interface, <br> deve-se <strong>encostar o mouse no lado <br> direito</strong> da tela.</p>
-        </article>
-        <article class="secFuncaoDeCadaBotao__btn">
-            <aside class="secFuncaoDeCadaBotao__btn__pause secFuncaoDeCadaBotao__btn__items">
-                <h1>Pause</h1>
-                <img src="Recursos/Icones/icone-Pause.svg" alt="iconeDoBotao">
-                <p>pausa ou retoma o jogo e as animações.</p>
-            </aside>
-            <aside class="secFuncaoDeCadaBotao__btn__restart secFuncaoDeCadaBotao__btn__items">
-                <h1>Restart</h1>
-                <img src="Recursos/Icones/icone-Restart.svg" alt="iconeDoBotao">
-                <p>reinicia o jogo do zero, zerando pontuação e animações.</p>
-            </aside>
-            <aside class="secFuncaoDeCadaBotao__btn__home secFuncaoDeCadaBotao__btn__items">
-                <h1>Home</h1>
-                <img src="Recursos/Icones/icone-Home.svg" alt="iconeDoBotao">
-                <p>leva o usuário à página Inicial</p>
-            </aside>
-            <aside class="secFuncaoDeCadaBotao__btn__mais secFuncaoDeCadaBotao__btn__items">
-                <h1>Mais Opções</h1>
-                <img src="Recursos/Icones/icone-Mais.svg" alt="iconeDoBotao">
-                <p>carrega mais músicas na lista lateral</p>
-            </aside>
-            <aside class="secFuncaoDeCadaBotao__btn__alerta secFuncaoDeCadaBotao__btn__items">
-                <h1>Reiniciar</h1>
-                <img src="Recursos/Icones/icone-Alerta.svg" alt="iconeDoBotao">
-                <p>recarrega a página inteira, para caso haja um bug inesperado</p>
-            </aside>
-            <aside class="secFuncaoDeCadaBotao__btn__fonte secFuncaoDeCadaBotao__btn__items">
-                <h1>Fonte</h1>
-                <img src="Recursos/Icones/icone-Fonte.svg" alt="iconeDoBotao">
-                <p>abre em uma nova aba o link de origem da música atual</p>
-            </aside>
-            <aside class="secFuncaoDeCadaBotao__btn__status secFuncaoDeCadaBotao__btn__items">
-                <h1>Status</h1>
-                <img src="Recursos/Icones/icone-Status.svg" alt="iconeDoBotao">
-                <p>exibe ou oculta o painel com as informações da música atual</p>
-            </aside>
-            <aside class="secFuncaoDeCadaBotao__btn__play secFuncaoDeCadaBotao__btn__items">
-                <h1>Play</h1>
-                <img src="Recursos/Icones/icone-Play.svg" alt="iconeDoBotao">
-                <p>inicia o jogo com a música selecionada</p>
-            </aside>
-        </article>
-    </section>
-    <section id="secTestePiano" class="secTestePiano">
-        <article class="hdrPorAba">
-            <h1 class="hdrPorAba__h1">Teste o piano</h1>
-            <p class="hdrPorAba__p">Interaja com o piano atráves dos <br> botões do teclado ou por meio do <br> click do mouse.</p>
-        </article>
-        <article class="wallpaper__conteiner">
-            <article id="secTestePiano__wallpaper" class="secTestePiano__wallpaper">
-                <section class="secTestePiano__wallpaper__teste">
-                    <section id="areaDeJogo">
-                        <section id="rotaParaAsNotas">
-                            <visual-piano>
-                                <span slot="oitavas">
-                                    <uma-oitava></uma-oitava>
-                                    <dois-oitava></dois-oitava>
-                                </span>
-                            </visual-piano>
+        <section id="secIntroducao" class="secIntroducao">
+            <h1 class="secIntroducao__h1">Sobre o Projeto</h1>
+            <article class="secIntroducao__paragrafos">
+                <p class="secIntroducao__paragrafos__p secIntroducao__paragrafos__p-1"><strong>Blasphem Fortze</strong> é um jogo de piano interativo rodando direto no navegador, sem precisar instalar nada. A ideia é simples: escolha uma música, acompanhe as teclas que aparecem na tela e pressione as teclas certas no tempo certo para pontuar. <br> O projeto foi construído inteiramente com HTML, CSS e JavaScript puro, sem frameworks.</p>
+                <p class="secIntroducao__paragrafos__p secIntroducao__paragrafos__p-2">Toda a lógica do jogo, desde a seleção de músicas até o sistema de pontuação em tempo real, é coordenada por scripts que se comunicam via eventos customizados, mantendo o código organizado e desacoplado.</p>
+            </article>
+        </section>
+        <section id="secFuncaoDeCadaBotao" class="secFuncaoDeCadaBotao">
+            <article class="hdrPorAba">
+                <h1 class="hdrPorAba__h1">Interface do Jogo</h1>
+                <p class="hdrPorAba__p">Para acessar os botões da interface, <br> deve-se <strong>encostar o mouse no lado <br> direito</strong> da tela.</p>
+            </article>
+            <article class="secFuncaoDeCadaBotao__btn">
+                <aside class="secFuncaoDeCadaBotao__btn__pause secFuncaoDeCadaBotao__btn__items">
+                    <h1>Pause</h1>
+                    <img src="Recursos/Icones/icone-Pause.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper001.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>pausa ou retoma o jogo e as animações.</p>
+                </aside>
+                <aside class="secFuncaoDeCadaBotao__btn__restart secFuncaoDeCadaBotao__btn__items">
+                    <h1>Restart</h1>
+                    <img src="Recursos/Icones/icone-Restart.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper002.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>reinicia o jogo do zero, zerando pontuação e animações.</p>
+                </aside>
+                <aside class="secFuncaoDeCadaBotao__btn__home secFuncaoDeCadaBotao__btn__items">
+                    <h1>Home</h1>
+                    <img src="Recursos/Icones/icone-Home.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper003.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>leva o usuário à página Inicial</p>
+                </aside>
+                <aside class="secFuncaoDeCadaBotao__btn__mais secFuncaoDeCadaBotao__btn__items">
+                    <h1>Mais Opções</h1>
+                    <img src="Recursos/Icones/icone-Mais.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper004.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>carrega mais músicas na lista lateral</p>
+                </aside>
+                <aside class="secFuncaoDeCadaBotao__btn__alerta secFuncaoDeCadaBotao__btn__items">
+                    <h1>Reiniciar</h1>
+                    <img src="Recursos/Icones/icone-Alerta.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper005.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>recarrega a página inteira, para caso haja um bug inesperado</p>
+                </aside>
+                <aside class="secFuncaoDeCadaBotao__btn__fonte secFuncaoDeCadaBotao__btn__items">
+                    <h1>Fonte</h1>
+                    <img src="Recursos/Icones/icone-Fonte.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper006.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>abre em uma nova aba o link de origem da música atual</p>
+                </aside>
+                <aside class="secFuncaoDeCadaBotao__btn__status secFuncaoDeCadaBotao__btn__items">
+                    <h1>Status</h1>
+                    <img src="Recursos/Icones/icone-Status.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper007.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>exibe ou oculta o painel com as informações da música atual</p>
+                </aside>
+                <aside class="secFuncaoDeCadaBotao__btn__play secFuncaoDeCadaBotao__btn__items">
+                    <h1>Play</h1>
+                    <img src="Recursos/Icones/icone-Play.svg" alt="iconeDoBotao" class="secFuncaoDeCadaBotao__btn__items__img1">
+                    <img src="Recursos/Imagens/wallpaper008.png" class="secFuncaoDeCadaBotao__btn__items__img2">
+                    <p>inicia o jogo com a música selecionada</p>
+                </aside>
+            </article>
+        </section>
+        <section id="secTestePiano" class="secTestePiano">
+            <article class="hdrPorAba">
+                <h1 class="hdrPorAba__h1">Teste o piano</h1>
+                <p class="hdrPorAba__p">Interaja com o piano atráves dos <br> botões do teclado ou por meio do <br> click do mouse.</p>
+            </article>
+            <article class="wallpaper__conteiner">
+                <article id="secTestePiano__wallpaper" class="secTestePiano__wallpaper">
+                    <section class="secTestePiano__wallpaper__teste">
+                        <section id="areaDeJogo">
+                            <section id="rotaParaAsNotas">
+                                <visual-piano>
+                                    <span slot="oitavas">
+                                        <uma-oitava></uma-oitava>
+                                        <dois-oitava></dois-oitava>
+                                    </span>
+                                </visual-piano>
+                            </section>
                         </section>
                     </section>
-                </section>
+                </article>
             </article>
-        </article>
-    </section>
-    <main id="mnSelecaoDeMusica" class="mnSelecaoDeMusica">
-        <article class="hdrPorAba">
-            <h1 class="hdrPorAba__h1">Seleção de Música</h1>
-            <p class="hdrPorAba__p">Começe a tocar no piano <br> com uma das nossas músicas basicas <br> do jogo abaixo</p>
-        </article>
-        <article class="mnSelecaoDeMusica__abaOpcaoDeMusicas">
-            <article id="musica-1" class="mnSelecaoDeMusica__abaOpcaoDeMusicas__musica musica-1">
-                <div class="musica__img">
-                    <div class="musica__img__disco">
-                        <article id="disco" class="principal__disco">
-                            <article class="disco__roela"></article>
-                        </article>
+        </section>
+        <main id="mnSelecaoDeMusica" class="mnSelecaoDeMusica">
+            <article class="hdrPorAba">
+                <h1 class="hdrPorAba__h1">Seleção de Música</h1>
+                <p class="hdrPorAba__p">Começe a tocar no piano <br> com uma das nossas músicas basicas <br> do jogo abaixo</p>
+            </article>
+            <article class="mnSelecaoDeMusica__abaOpcaoDeMusicas">
+                <article id="musica-1" class="mnSelecaoDeMusica__abaOpcaoDeMusicas__musica musica-1">
+                    <div class="musica__img">
+                        <div class="musica__img__disco">
+                            <article id="disco" class="principal__disco">
+                                <article class="disco__roela"></article>
+                            </article>
+                        </div>
                     </div>
-                </div>
-                <div class="musica__txt">
-                    <p class="musica__txt__nomeDaMusica"></p>
-                    <p class="musica__txt__dados"></p>
-                    <p class="musica__txt__dados"></p>
-                    <p class="musica__txt__dados"></p>
-                    <p class="musica__txt__dados"></p>
-                </div>
-            </article>
-            <article id="musica-2" class="mnSelecaoDeMusica__abaOpcaoDeMusicas__musica musica-2">
-                <div class="musica__img">
-                    <div class="musica__img__disco">
-                        <article id="disco" class="principal__disco">
-                            <article class="disco__roela"></article>
-                        </article>
+                    <div class="musica__txt">
+                        <p class="musica__txt__nomeDaMusica"></p>
+                        <p class="musica__txt__dados"></p>
+                        <p class="musica__txt__dados"></p>
+                        <p class="musica__txt__dados"></p>
+                        <p class="musica__txt__dados"></p>
                     </div>
-                </div>
-                <div class="musica__txt">
-                    <p class="musica__txt__nomeDaMusica"></p>
-                    <p class="musica__txt__dados"></p>
-                    <p class="musica__txt__dados"></p>
-                    <p class="musica__txt__dados"></p>
-                    <p class="musica__txt__dados"></p>
-                </div>
-            </article>
-            <article id="musica-3" class="mnSelecaoDeMusica__abaOpcaoDeMusicas__musica musica-3">
-                <div class="musica__img">
-                    <div class="musica__img__disco">
-                        <article id="disco" class="principal__disco">
+                </article>
+                <article id="musica-2" class="mnSelecaoDeMusica__abaOpcaoDeMusicas__musica musica-2">
+                    <div class="musica__img">
+                        <div class="musica__img__disco">
+                            <article id="disco" class="principal__disco">
                             <article class="disco__roela"></article>
-                        </article>
+                            </article>
+                        </div>
                     </div>
-                </div>
-                <div class="musica__txt">
-                    <p class="musica__txt__nomeDaMusica">Laufey - From The Start</p>
-                    <p class="musica__txt__dados">Hard</p>
-                    <p class="musica__txt__dados">2000</p>
-                    <p class="musica__txt__dados">2.1 min</p>
-                    <p class="musica__txt__dados">247</p>
-                </div>
+                    <div class="musica__txt">
+                        <p class="musica__txt__nomeDaMusica"></p>
+                        <p class="musica__txt__dados"></p>
+                        <p class="musica__txt__dados"></p>
+                        <p class="musica__txt__dados"></p>
+                        <p class="musica__txt__dados"></p>
+                    </div>
+                </article>
+                <article id="musica-3" class="mnSelecaoDeMusica__abaOpcaoDeMusicas__musica musica-3">
+                    <div class="musica__img">
+                        <div class="musica__img__disco">
+                            <article id="disco" class="principal__disco">
+                                <article class="disco__roela"></article>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="musica__txt">
+                        <p class="musica__txt__nomeDaMusica">Laufey - From The Start</p>
+                        <p class="musica__txt__dados">Hard</p>
+                        <p class="musica__txt__dados">2000</p>
+                        <p class="musica__txt__dados">2.1 min</p>
+                        <p class="musica__txt__dados">247</p>
+                    </div>
+                </article>
             </article>
-        </article>
+        </main>
+        <section class="secComoJogar">
+            <article class="hdrPorAba">
+                <h1 class="hdrPorAba__h1">Como Jogar</h1>
+                <p class="hdrPorAba__p">O jogo é simples — acompanhe as <br> teclas que caem e pressione no momento <br> certo para pontuar.</p>
+            </article>
+            <article class="secComoJogar__cardsComoJogar">
+                <article class="secComJogar__cardsComoJogar__card">
+                    <p>Teclas caem no ritmo da música</p>
+                </article>
+                <article class="secComJogar__cardsComoJogar__card">
+                    <p>Aperte no momento certo para pontuar</p>
+                </article>
+                <article class="secComJogar__cardsComoJogar__card">
+                    <p>Erre e perca pontos</p>
+                </article>
+                <article class="secComJogar__cardsComoJogar__card">
+                    <p>Tente ultrapassar a pontuação máxima</p>
+                </article>
+            </article>
+        </section>
+        <footer id="ftrFinalizacao" class="ftrFinalizacao">
+            <h1 class="ftrFinalizacao__h1">Domine o Piano!</h1>
+            <p class="ftrFinalizacao__p">Toque sua primeira música agora!</p>
+            <article class="ftrFinalizacao__artIcones">
+                <a href="https://github.com/John5dbr" target="_blank" class="ftrFinalizacao__artIcones__links">
+                    <img src="Recursos/Icones/icone-GitHub.svg" alt="icone-GitHub"><p>Perfil do Desenvolvedor no GitHub</p>
+                </a>
+                <a href="https://github.com/John5dbr/Blasphem-Fortze" target="_blank" class="ftrFinalizacao__artIcones__links">
+                    <img src="Recursos/Icones/icone-Coroa.svg" alt="icone-Coroa"><p>Repositório do Projeto</p>
+                </a>
+                <a id="email" data-url="pedropss20072@gmail.com" class="ftrFinalizacao__artIcones__links">
+                    <img src="Recursos/Icones/icone-Email.svg" alt="icone-Email"><p>Email para Contato</p>
+                </a>
+                <a id="telefone" data-url="+55 (11) 91737-4998" class="ftrFinalizacao__artIcones__links">
+                    <img src="Recursos/Icones/icone-Telefone.svg" alt="icone-Telefone"><p>Telefone para Contato</p>
+                </a>
+            </article>
+            <div id="elementoParaInformarCopia" class="elementoParaInformarCopia">
+                <p>Cópia na área de transferência.</p>
+            </div>
+        </footer>
     </main>
-    <section class="secComoJogar">
-        <article class="hdrPorAba">
-            <h1 class="hdrPorAba__h1">Como Jogar</h1>
-            <p class="hdrPorAba__p">O jogo é simples — acompanhe as <br> teclas que caem e pressione no momento <br> certo para pontuar.</p>
-        </article>
-        <article class="secComoJogar__cardsComoJogar">
-            <article class="secComJogar__cardsComoJogar__card">
-                <p>Teclas caem no ritmo da música</p>
-            </article>
-            <article class="secComJogar__cardsComoJogar__card">
-                <p>Aperte no momento certo para pontuar</p>
-            </article>
-            <article class="secComJogar__cardsComoJogar__card">
-                <p>Erre e perca pontos</p>
-            </article>
-            <article class="secComJogar__cardsComoJogar__card">
-                <p>Tente ultrapassar a pontuação máxima</p>
-            </article>
-        </article>
-    </section>
-    <footer id="ftrFinalizacao" class="ftrFinalizacao">
-        <h1 class="ftrFinalizacao__h1">Domine o Piano!</h1>
-        <p class="ftrFinalizacao__p">Toque sua primeira música agora!</p>
-        <article class="ftrFinalizacao__artIcones">
-            <a href="https://github.com/John5dbr" target="_blank" class="ftrFinalizacao__artIcones__links">
-                <img src="Recursos/Icones/icone-GitHub.svg" alt="icone-GitHub"><p>Perfil do Desenvolvedor no GitHub</p>
-            </a>
-            <a href="https://github.com/John5dbr/Blasphem-Fortze" target="_blank" class="ftrFinalizacao__artIcones__links">
-                <img src="Recursos/Icones/icone-Coroa.svg" alt="icone-Coroa"><p>Repositório do Projeto</p>
-            </a>
-            <a id="email" data-url="pedropss20072@gmail.com" class="ftrFinalizacao__artIcones__links">
-                <img src="Recursos/Icones/icone-Email.svg" alt="icone-Email"><p>Email para Contato</p>
-            </a>
-            <a id="telefone" data-url="+55 (11) 91737-4998" class="ftrFinalizacao__artIcones__links">
-                <img src="Recursos/Icones/icone-Telefone.svg" alt="icone-Telefone"><p>Telefone para Contato</p>
-            </a>
-        </article>
-        <div id="elementoParaInformarCopia" class="elementoParaInformarCopia">
-            <p>Cópia na área de transferência.</p>
-        </div>
-    </footer>
 
     <script src="script.js" type="module"></script>
+    <script src="../paginaDeJogo/script.js" type="module"></script>
+
+    <script id="script-definir_ritmoParaTeclas" data-urlpararitmo="../Musicas/musica003/ritmo.json" type="module" src="../ritmoInterativo/definir_ritmoParaTeclas.js"></script>
+    <script id="script-definir_ritmoParaUsuario" data-valido="false" type="module" src="../ritmoInterativo/definir_ritmoParaUsuario.js"></script>
+
+    <script src="../codigoCentral/transicaoEntrePaginas.js"></script>
 </body>
 </html>
