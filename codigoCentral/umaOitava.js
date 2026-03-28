@@ -82,18 +82,18 @@ export class umaOitava extends HTMLElement {
 
     connectedCallback() {
         let notas = {
-            do: new Audio('../codigoCentral/Recursos/Audio/UmOitava/C1.mp3'),
-            reB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Db1.mp3'),
-            re: new Audio('../codigoCentral/Recursos/Audio/UmOitava/D1.mp3'),
-            miB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Eb1.mp3'),
-            mi: new Audio('../codigoCentral/Recursos/Audio/UmOitava/E1.mp3'),
-            fa: new Audio('../codigoCentral/Recursos/Audio/UmOitava/F1.mp3'),
-            solB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Gb1.mp3'),
-            sol: new Audio('../codigoCentral/Recursos/Audio/UmOitava/G1.mp3'),
-            laB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Ab1.mp3'),
-            la: new Audio('../codigoCentral/Recursos/Audio/UmOitava/A1.mp3'),
-            siB: new Audio('../codigoCentral/Recursos/Audio/UmOitava/Bb1.mp3'),
-            si: new Audio('../codigoCentral/Recursos/Audio/UmOitava/B1.mp3')
+            do: new Audio('../codigoCentral/Recursos/Audio/umOitava/C1.mp3'),
+            reB: new Audio('../codigoCentral/Recursos/Audio/umOitava/Db1.mp3'),
+            re: new Audio('../codigoCentral/Recursos/Audio/umOitava/D1.mp3'),
+            miB: new Audio('../codigoCentral/Recursos/Audio/umOitava/Eb1.mp3'),
+            mi: new Audio('../codigoCentral/Recursos/Audio/umOitava/E1.mp3'),
+            fa: new Audio('../codigoCentral/Recursos/Audio/umOitava/F1.mp3'),
+            solB: new Audio('../codigoCentral/Recursos/Audio/umOitava/Gb1.mp3'),
+            sol: new Audio('../codigoCentral/Recursos/Audio/umOitava/G1.mp3'),
+            laB: new Audio('../codigoCentral/Recursos/Audio/umOitava/Ab1.mp3'),
+            la: new Audio('../codigoCentral/Recursos/Audio/umOitava/A1.mp3'),
+            siB: new Audio('../codigoCentral/Recursos/Audio/umOitava/Bb1.mp3'),
+            si: new Audio('../codigoCentral/Recursos/Audio/umOitava/B1.mp3')
         };
 
         // Seleção das teclas presente nesssa oitava.
