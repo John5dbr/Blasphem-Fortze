@@ -1,7 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
     let elementoParaTransicao = document.getElementById('elementoDeTransicao');
-    elementoParaTransicao.style.height = '0%';
-
+    setTimeout(() => { 
+        elementoParaTransicao.style.height = '0%';
+    }, 250);
+     
     try {
         let linkNaPaginaInicial = document.querySelector('.linkNaPaginaInicial');
         linkNaPaginaInicial.addEventListener('click', (e) => {
@@ -12,12 +14,11 @@ window.addEventListener('DOMContentLoaded', () => {
             if (dadosSalvos === null || dadosSalvos === '') {
                 document.getElementById('mnSelecaoDeMusica').scrollIntoView();
             } else {
-                let elementoParaTransicao = document.getElementById('elementoDeTransicao');
                 elementoParaTransicao.style.height = '100%';
 
                 setTimeout(() => { 
                     window.location.replace('../paginaDeJogo/index.html'); 
-                }, 1500); 
+                }, 1250); 
             };
         }); 
     } catch(e) {
@@ -29,7 +30,6 @@ window.addEventListener('DOMContentLoaded', () => {
         linkNaPaginaJogo.addEventListener('click', (e) => {
             e.preventDefault();
 
-            let elementoParaTransicao = document.getElementById('elementoDeTransicao');
             elementoParaTransicao.style.height = '100%';
 
             setTimeout(() => {
