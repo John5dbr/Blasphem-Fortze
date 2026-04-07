@@ -2,97 +2,424 @@
     {
         "tecla": "001",
         "nota": "A1",
-        "tempoParaAparecer": 1,
-        "pressaoDeClique": 3    
+        "tempoParaAparecer": 0.5,
+        "pressaoDeClique": 1    
     },
     {
         "tecla": "002",
         "nota": "Bb1",
-        "tempoParaAparecer": 1.5,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 0.75,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "003",
         "nota": "F2",
-        "tempoParaAparecer": 3,
-        "pressaoDeClique": 4
+        "tempoParaAparecer": 1.25,
+        "pressaoDeClique": 2
     },
     {
         "tecla": "004",
         "nota": "Bb1",
-        "tempoParaAparecer": 3.5,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 1.75,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "005",
         "nota": "F2",
-        "tempoParaAparecer": 5,
+        "tempoParaAparecer": 3.5,
         "pressaoDeClique": 4
-    }, 
+    },
     {
         "tecla": "006",
         "nota": "F2",
-        "tempoParaAparecer": 6,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 3.8,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "007",
         "nota": "Eb2",
-        "tempoParaAparecer": 7,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 4.1,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "008",
         "nota": "Db2",
-        "tempoParaAparecer": 7.5,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 4.6,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "009",
         "nota": "C2",
-        "tempoParaAparecer": 8,
-        "pressaoDeClique": 3
+        "tempoParaAparecer": 4.9,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "010",
         "nota": "Eb2",
-        "tempoParaAparecer": 8.5,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 5.3,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "011",
         "nota": "Db2",
-        "tempoParaAparecer": 9,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 5.8,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "012",
         "nota": "C2",
-        "tempoParaAparecer": 9.5,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 6.1,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "013",
         "nota": "Bb1",
-        "tempoParaAparecer": 10,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 6.5,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "014",
         "nota": "F2",
-        "tempoParaAparecer": 11,
-        "pressaoDeClique": 3
+        "tempoParaAparecer": 7.25,
+        "pressaoDeClique": 2
     },
     {
         "tecla": "015",
         "nota": "Bb1",
-        "tempoParaAparecer": 12,
-        "pressaoDeClique": 2
+        "tempoParaAparecer": 8,
+        "pressaoDeClique": 1
     },
     {
         "tecla": "016",
         "nota": "F2",
-        "tempoParaAparecer": 13,
-        "pressaoDeClique": 3
+        "tempoParaAparecer": 9.5,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "017",
+        "nota": "F2",
+        "tempoParaAparecer": 10.5,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "018",
+        "nota": "Eb2",
+        "tempoParaAparecer": 10.75,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "019",
+        "nota": "Db2",
+        "tempoParaAparecer": 11,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "020",
+        "nota": "C2",
+        "tempoParaAparecer": 11.25,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "021",
+        "nota": "Eb2",
+        "tempoParaAparecer": 11.5,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "022",
+        "nota": "Db2",
+        "tempoParaAparecer": 11.75,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "023",
+        "nota": "C2",
+        "tempoParaAparecer": 12,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "024",
+        "nota": "Bb1",
+        "tempoParaAparecer": 12.75,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "025",
+        "nota": "Bb1",
+        "tempoParaAparecer": 13.15,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "026",
+        "nota": "Bb2",
+        "tempoParaAparecer": 13.6,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "027",
+        "nota": "Ab2",
+        "tempoParaAparecer": 14.4,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "028",
+        "nota": "F2",
+        "tempoParaAparecer": 15.45,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "029",
+        "nota": "Gb2",
+        "tempoParaAparecer": 15.95,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "030",
+        "nota": "Ab2",
+        "tempoParaAparecer": 16.35,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "031",
+        "nota": "Eb2",
+        "tempoParaAparecer": 16.75,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "032",
+        "nota": "D2",
+        "tempoParaAparecer": 18.45,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "033",
+        "nota": "F2",
+        "tempoParaAparecer": 19,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "034",
+        "nota": "Eb2",
+        "tempoParaAparecer": 19.6,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "035",
+        "nota": "Db2",
+        "tempoParaAparecer": 20,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "036",
+        "nota": "C2",
+        "tempoParaAparecer": 20.4,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "037",
+        "nota": "Eb2",
+        "tempoParaAparecer": 20.8,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "038",
+        "nota": "Db2",
+        "tempoParaAparecer": 21.2,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "039",
+        "nota": "C2",
+        "tempoParaAparecer": 21.6,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "040",
+        "nota": "Bb1",
+        "tempoParaAparecer": 22,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "041",
+        "nota": "C2",
+        "tempoParaAparecer": 22.4,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "042",
+        "nota": "C2",
+        "tempoParaAparecer": 22.8,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "043",
+        "nota": "C2",
+        "tempoParaAparecer": 23.2,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "044",
+        "nota": "Db2",
+        "tempoParaAparecer": 23.5,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "045",
+        "nota": "Eb2",
+        "tempoParaAparecer": 23.8,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "046",
+        "nota": "A1",
+        "tempoParaAparecer": 24.75,
+        "pressaoDeClique": 1    
+    },
+    {
+        "tecla": "047",
+        "nota": "Bb1",
+        "tempoParaAparecer": 25.2,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "048",
+        "nota": "F2",
+        "tempoParaAparecer": 26,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "049",
+        "nota": "Bb1",
+        "tempoParaAparecer": 26.55,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "050",
+        "nota": "F2",
+        "tempoParaAparecer": 27.85,
+        "pressaoDeClique": 4
+    },
+    {
+        "tecla": "051",
+        "nota": "F2",
+        "tempoParaAparecer": 28.4,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "052",
+        "nota": "Eb2",
+        "tempoParaAparecer": 28.7,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "053",
+        "nota": "Db2",
+        "tempoParaAparecer": 29,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "054",
+        "nota": "C2",
+        "tempoParaAparecer": 29.3,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "055",
+        "nota": "Eb2",
+        "tempoParaAparecer": 29.8,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "056",
+        "nota": "Db2",
+        "tempoParaAparecer": 30.2,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "057",
+        "nota": "C2",
+        "tempoParaAparecer": 30.6,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "058",
+        "nota": "Bb1",
+        "tempoParaAparecer": 31,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "059",
+        "nota": "F2",
+        "tempoParaAparecer": 32,
+        "pressaoDeClique": 2
+    },
+    {
+        "tecla": "060",
+        "nota": "Bb1",
+        "tempoParaAparecer": 32.6,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "061",
+        "nota": "F2",
+        "tempoParaAparecer": 34.1,
+        "pressaoDeClique": 4
+    }
+
+    ,
+
+    {
+        "tecla": "062",
+        "nota": "F2",
+        "tempoParaAparecer": 34.65,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "063",
+        "nota": "Eb2",
+        "tempoParaAparecer": 34.95,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "064",
+        "nota": "Db2",
+        "tempoParaAparecer": 35.25,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "065",
+        "nota": "C2",
+        "tempoParaAparecer": 35.55,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "066",
+        "nota": "Eb2",
+        "tempoParaAparecer": 35.9,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "067",
+        "nota": "Db2",
+        "tempoParaAparecer": 36.2,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "068",
+        "nota": "C2",
+        "tempoParaAparecer": 36.6,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "069",
+        "nota": "Bb1",
+        "tempoParaAparecer": 37.25,
+        "pressaoDeClique": 1
+    },
+    {
+        "tecla": "070",
+        "nota": "Bb1",
+        "tempoParaAparecer": 38,
+        "pressaoDeClique": 2
     }
 ]

@@ -1,6 +1,6 @@
 ![logoDoJogo](./paginaDeJogo/Recursos/Imagens/Favicon.png)
 # ~ Blasphem Fortze ~
----
+<br>
 
 ### Sumário
 
